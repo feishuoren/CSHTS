@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/egrils/CSHTS#readme",
   "dependencies": {
+    "express": "^4.16.3",
     "webpack": "^4.2.0"
   },
   "devDependencies": {
