@@ -16,5 +16,12 @@
   "bugs": {
     "url": "https://github.com/egrils/CSHTS/issues"
   },
-  "homepage": "https://github.com/egrils/CSHTS#readme"
+  "homepage": "https://github.com/egrils/CSHTS#readme",
+  "dependencies": {
+    "webpack": "^4.2.0"
+  },
+  "devDependencies": {
+    "css-loader": "^0.28.11",
+    "style-loader": "^0.20.3"
+  }
 }
