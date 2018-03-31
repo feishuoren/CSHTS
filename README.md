@@ -7,7 +7,7 @@ campus second-hand trading system
 git clone git@github.com:egrils/CSHTS.git
 npm install
 npm run webpack
-node server.js
+npm start
 
 ```
 请在浏览器中打开
