@@ -1,4 +1,4 @@
-require('!style-loader!css-loader!./../../style.css');
+import '!style-loader!css-loader!./../style/bodyStyle.css';
 import {render} from 'react-dom';
 import React from 'react';
 

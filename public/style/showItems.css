@@ -1,0 +1,39 @@
+.item {
+  width: 100%;
+  padding: 10px;
+  margin: 2px 0;
+  display: inline-block;
+  background-color: #9da0a4;
+  border-radius: 5px;
+}
+
+.item a:hover {
+  padding: 10px;
+  margin: 2px 0;
+  display: block;
+  background-color: #ffff00;
+}
+
+.itemPic {
+  float: left;
+}
+
+.itemName {
+  margin-left: 40px;
+}
+
+.itemSynopsis {
+
+}
+
+#items {
+  margin: 0 auto;
+  display: block;
+  height: auto;
+  width: 80%;
+}
+
+#itemList {
+  margin-top: 20px;
+  text-align: center;
+}

@@ -1,8 +1,13 @@
 import React, {Component} from 'react';
+import TopBar from './TopBar';
+import ShowItems from './ShowItems';
 
 class App extends Component {
   render() {
-    return <div>hello world!</div>;
+    return <div>
+      <TopBar/>
+      <ShowItems/>
+    </div>;
   }
 }
 

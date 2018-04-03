@@ -1,4 +1,5 @@
-let path = require("path");
+let path = require('path');
+
 module.exports = {
   entry: './public/js/entry.js',
   output: {
