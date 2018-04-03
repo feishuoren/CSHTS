@@ -16,15 +16,12 @@ export default class SellItem extends Component {
         let reader = new FileReader();
         reader.readAsDataURL(file);
 
-        reader.addEventListener("load", ()=> {
+        reader.addEventListener('load', ()=> {
           let image = new Image();
           image.height = 100;
           image.title = file.name;
           image.src = reader.result;
           this.preview.appendChild(image);
-
-          let imgdataUrl = reader.result;
-          this.props.getImgData(imgdataUrl);
         }, false);
       }
 
@@ -35,8 +32,7 @@ export default class SellItem extends Component {
     return (
       <div>
         选择图片：
-        <input type="file" id="imgFile" name="file" ref={(c) => this.imgFile = c}
-               onChange={this.getImg.bind(this)}/>
+        <input type="file" id="imgFile" name="file" ref={(c) => this.imgFile = c} onChange={this.getImg.bind(this)}/>
         <div id="preview" ref={(c) => this.preview = c}></div>
       </div>
     );
