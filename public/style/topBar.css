@@ -24,7 +24,14 @@
 
 }
 
+#box a {
+  text-decoration: none;
+  display: block;
+  color: #000;
+}
+
 #box a:hover {
+  text-decoration: none;
   display: block;
   color: #7f7f7f;
 }

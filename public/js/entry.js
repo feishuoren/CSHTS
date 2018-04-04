@@ -14,7 +14,7 @@ render((
     <Route path="/" component={(props) => (
       <App {...props}>
         <Switch>
-          <Route path='/s' component={ShowItems}/>
+          <Route path='/' exact component={ShowItems}/>
           <Route path='/sellItem' component={SellItem}/>
         </Switch>
       </App>
