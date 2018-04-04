@@ -1,23 +1,33 @@
 import '!style-loader!css-loader!./../style/bodyStyle.css';
 import {render} from 'react-dom';
 import React from 'react';
-
+import {createStore, applyMiddleware} from 'redux';
+import {Provider} from 'react-redux';
 import {Switch, Route, HashRouter as Router} from 'react-router-dom';
-
-import ShowItems from './components/ShowItems';
-import SellItem from './components/SellItem';
 
 import App from './components/App';
 
+import ShowItems from './containers/ShowItems';
+import SellItem from './components/SellItem';
+
+import reducer from './reducers/index';
+
+import showItems from './middlewares/showItems';
+
+const middleware = applyMiddleware(showItems);
+const store = createStore(reducer, middleware);
+
 render((
-  <Router>
-    <Route path="/" component={(props) => (
-      <App {...props}>
-        <Switch>
-          <Route path='/' exact component={ShowItems}/>
-          <Route path='/sellItem' component={SellItem}/>
-        </Switch>
-      </App>
-    )}/>
-  </Router>
+  <Provider store={store}>
+    <Router>
+      <Route path="/" component={(props) => (
+        <App {...props}>
+          <Switch>
+            <Route path='/' exact component={ShowItems}/>
+            <Route path='/sellItem' component={SellItem}/>
+          </Switch>
+        </App>
+      )}/>
+    </Router>
+  </Provider>
 ), document.getElementById('app'));
