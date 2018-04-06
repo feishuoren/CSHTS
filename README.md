@@ -1,10 +1,14 @@
 # CSHTS
 campus second-hand trading system
 
+请打开 MongoDB
+`use CSHTS`
+
 请在terminal中运行
 
 ```
 git clone git@github.com:egrils/CSHTS.git
+cd CSHTS
 npm install
 npm run webpack
 npm start
