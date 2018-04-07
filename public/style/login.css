@@ -1,0 +1,71 @@
+.content-box {
+  padding: 0 20px;
+  width: 80%;
+  margin: 20px auto;
+  background: #fff;
+  overflow: hidden;
+}
+
+.combined-login {
+  margin: 40px auto;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.combined-login h1 {
+  font-size: 40px;
+  font-weight: 700;
+}
+
+.combined-login .login-content {
+  padding: 20px 0px 0 20px
+}
+
+.combined-login .register-content {
+  padding: 20px;
+  background: #FDF4DA;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.combined-login .register-content .column-left {
+  width: 50%;
+  float: left;
+}
+
+.combined-login .register-content .column-right {
+  width: 50%;
+  float: left;
+}
+
+.content-box form label {
+  font-size: 12px;
+  color: #7e7e7e;
+  font-weight: 300;
+  margin-bottom: 8px;
+}
+
+.combined-login form label {
+  font-size: 20px;
+}
+
+#content_left {
+  width: 33.3%;
+  float: left;
+}
+
+#content_right {
+  width: 66.6%;
+  float: left;
+}
+
+.content-box input {
+  border: 1px solid #a9a9a9;
+  border-radius: 6px;
+  width: 90%;
+  padding: 5px 10px;
+  font-size: 16px;
+  color: #000;
+  box-sizing: border-box;
+  line-height: 1;
+}

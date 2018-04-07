@@ -9,6 +9,7 @@ import App from './components/App';
 
 import ShowItems from './containers/ShowItems';
 import SellItem from './components/SellItem';
+import LogIn from './components/LogIn';
 
 import reducer from './reducers/index';
 
@@ -25,6 +26,7 @@ render((
           <Switch>
             <Route path='/' exact component={ShowItems}/>
             <Route path='/sellItem' component={SellItem}/>
+            <Route path='/logIn' component={LogIn}/>
           </Switch>
         </App>
       )}/>

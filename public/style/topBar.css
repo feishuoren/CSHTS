@@ -1,3 +1,7 @@
+#userBridge {
+  text-align: right;
+}
+
 #top {
   width: 100%;
 }
@@ -24,7 +28,7 @@
 
 }
 
-#box a {
+a {
   text-decoration: none;
   display: block;
   color: #000;
