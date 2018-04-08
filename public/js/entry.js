@@ -9,13 +9,14 @@ import App from './components/App';
 
 import ShowItems from './containers/ShowItems';
 import SellItem from './components/SellItem';
-import LogIn from './components/LogIn';
+import LoginBar from './containers/LoginBar';
 
 import reducer from './reducers/index';
 
 import showItems from './middlewares/showItems';
+import signIn from './middlewares/signIn';
 
-const middleware = applyMiddleware(showItems);
+const middleware = applyMiddleware(showItems,signIn);
 const store = createStore(reducer, middleware);
 
 render((
@@ -26,7 +27,7 @@ render((
           <Switch>
             <Route path='/' exact component={ShowItems}/>
             <Route path='/sellItem' component={SellItem}/>
-            <Route path='/logIn' component={LogIn}/>
+            <Route path='/loginBar' component={LoginBar}/>
           </Switch>
         </App>
       )}/>

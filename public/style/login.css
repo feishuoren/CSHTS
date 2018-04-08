@@ -38,14 +38,14 @@
   float: left;
 }
 
-.content-box form label {
+.content-box label {
   font-size: 12px;
   color: #7e7e7e;
   font-weight: 300;
   margin-bottom: 8px;
 }
 
-.combined-login form label {
+.combined-login label {
   font-size: 20px;
 }
 

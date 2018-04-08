@@ -43,3 +43,21 @@ a {
 #left_box, #right_box, #center_box :hover {
   display: block;
 }
+
+#user-box{
+  overflow: hidden;
+}
+
+#login-button {
+  font-size: 20px;
+  padding: 23px;
+  display: block;
+  float: right;
+}
+
+#user_cookie {
+  margin: 19px 10px;
+  font-size: 20px;
+  display: block;
+  float: right;
+}

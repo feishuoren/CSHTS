@@ -31,9 +31,21 @@ class Box extends Component {
 class UserBridge extends Component {
 
   render() {
+    let nickname;
+    let sno;
+    const cookies = document.cookie.split('; ');
+    cookies.find((val) => {
+      const cookieName = val.split('=');
+      if (cookieName[0] === 'nickname') {
+        nickname = cookieName[1];
+      }
+    });
     return (
       <div id="user-box">
-        <div id="login-button"><Link to='/logIn'>Log In</Link></div>
+        <div id="login-button"><Link to='/loginBar'>Log In</Link></div>
+        <div id="user_cookie">
+          欢迎你，{nickname}
+        </div>
       </div>
     );
   }
