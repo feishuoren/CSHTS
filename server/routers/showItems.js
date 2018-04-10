@@ -3,7 +3,7 @@ const router = express.Router();
 
 const showItems = require('../dbs/showItems');
 
-router.get('/showItems', (req, res)=> {
+router.get('/getItems', (req, res)=> {
   showItems(req, (result)=> {
 
     res.send(result);
