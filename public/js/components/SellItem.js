@@ -59,6 +59,7 @@ export default class SellItem extends Component {
       if (result === 'success') {
         this.tip.innerHTML = '您已提交成功';
         setTimeout(function () {
+          this.tip.innerHTML = '';
           window.location.href = '#/';
         }, 1000);
       }
