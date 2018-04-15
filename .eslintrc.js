@@ -10,6 +10,7 @@ module.exports = {
     "plugin:react/recommended"
   ],
   "parserOptions": {
+    // 想使用的额外的语言特性:
     "ecmaFeatures": {
       "experimentalObjectRestSpread": true,
       "jsx": true
@@ -22,7 +23,8 @@ module.exports = {
   "rules": {
     "indent": [
       "error",
-      2
+      2,
+      {"SwitchCase": 1}
     ],
     "linebreak-style": [
       "error",
@@ -36,6 +38,9 @@ module.exports = {
       "error",
       "always"
     ],
-    "no-console": "warn"
+    "no-console": 0,
+    "react/prop-types": 0,
+    "no-unused-vars":0,
+    "react/no-unescaped-entities": ["error", {"forbid": [">", "}"]}]
   }
 };

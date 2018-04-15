@@ -8,4 +8,4 @@ export default (state = {imgdataUrl: '', result: ''}, action)=> {
     }
   }
   return state;
-}
+};
