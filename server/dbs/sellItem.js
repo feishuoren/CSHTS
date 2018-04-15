@@ -3,7 +3,7 @@ const cn = require('./connect');
 
 function sellItem(req, callback) {
   let flag = 'fail';
-  const path = './public/images/bookPic/';
+  const path = './public/images/itemPic/';
   const imageDateUrl = req.body.imageDateUrl;
   const itemName = req.body.itemName;
   const itemBrand = req.body.itemBrand;
@@ -67,7 +67,7 @@ function addItemPic(path, imageDateUrl, itemName, itemAccount) {
         else console.log('创建成功！');
       });
     } else {
-      console.log('public/images/bookPic已存在');
+      console.log('public/images/itemPic已存在');
 
     }
 
@@ -97,7 +97,7 @@ function addItemPic(path, imageDateUrl, itemName, itemAccount) {
     });
   });
 
-  return '../../images/bookPic/' + itemImg;
+  return '../../images/itemPic/' + itemImg;
 }
 
 function getNowFormatDate() {
