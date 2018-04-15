@@ -5,6 +5,8 @@
   display: inline-block;
   background-color: #9da0a4;
   border-radius: 5px;
+  overflow: hidden;
+  zoom: 1;
 }
 
 .item a:hover {
@@ -12,18 +14,26 @@
   margin: 2px 0;
   display: block;
   background-color: #ffff00;
+  overflow: hidden;
+  zoom: 1;
 }
 
-.itemPic {
+.itemPicture {
+  width: 10%;
+  float: left;
+  margin: 0 35px;
+}
+
+.itemMessage {
+  width: 30%;
   float: left;
 }
 
-.itemName {
-  margin-left: 40px;
-}
-
 .itemSynopsis {
-
+  float: left;
+  display: block;
+  width: 52%;
+  height: 100px;
 }
 
 #items {
@@ -35,5 +45,5 @@
 
 #itemList {
   margin-top: 20px;
-  text-align: center;
+  text-align: left;
 }

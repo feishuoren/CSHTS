@@ -32,7 +32,6 @@ class UserBridge extends Component {
 
   render() {
     let nickname;
-    let sno;
     const cookies = document.cookie.split('; ');
     cookies.find((val) => {
       const cookieName = val.split('=');

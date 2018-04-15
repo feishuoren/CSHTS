@@ -8,15 +8,16 @@ import {Switch, Route, HashRouter as Router} from 'react-router-dom';
 import App from './components/App';
 
 import ShowItems from './containers/ShowItems';
-import SellItem from './components/SellItem';
+import SellItem from './containers/SellItem';
 import LoginBar from './containers/LoginBar';
 
 import reducer from './reducers/index';
 
 import showItems from './middlewares/showItems';
 import signIn from './middlewares/signIn';
+import sellItem from './middlewares/sellItem';
 
-const middleware = applyMiddleware(showItems,signIn);
+const middleware = applyMiddleware(showItems,signIn,sellItem);
 const store = createStore(reducer, middleware);
 
 render((

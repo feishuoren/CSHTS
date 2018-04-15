@@ -167,4 +167,5 @@ $RECYCLE.BIN/
 
 .idea/
 public/dist/
+public/images/
 # End of https://www.gitignore.io/api/windows,linux,ubuntu,node,webstorm

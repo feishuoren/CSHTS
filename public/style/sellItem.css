@@ -1,0 +1,68 @@
+#sellItemMes {
+  margin-top: 20px;
+  text-align: left;
+}
+
+#addSellItem {
+  margin: 0 auto;
+  display: block;
+  height: auto;
+  width: 80%;
+  overflow: hidden;
+  zoom: 1;
+}
+
+.clearfix {
+  zoom: 1;
+}
+
+.clearfix:after {
+  display: block;
+  content: '';
+  clear: both;
+  height: 0;
+  visibility: hidden;
+}
+
+#selectPic {
+  float: left;
+  display: block;
+  width: 25%;
+  margin: 10px 10px;
+}
+
+#itemMes {
+  float: left;
+  display: block;
+  width: 25%;
+  margin: 10px 0;
+}
+
+#itemSyn {
+  float: left;
+  display: block;
+  width: 45%;
+  margin: 10px 0;
+}
+
+#sellContent {
+  height: 200px;
+  background-color: #9da0a4;
+}
+
+#sellFooter {
+  text-align: center;
+  overflow: hidden;
+  zoom: 1;
+}
+
+#tip {
+  width: 40%;
+  display: block;
+  float: left;
+}
+
+#sellButton {
+  display: block;
+  float: left;
+}
