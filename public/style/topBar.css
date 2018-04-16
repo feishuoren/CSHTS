@@ -48,16 +48,23 @@ a {
   overflow: hidden;
 }
 
-#login-button {
+#user_cookie {
   font-size: 20px;
-  padding: 23px;
   display: block;
   float: right;
+  width: 15%;
 }
 
-#user_cookie {
-  margin: 19px 10px;
+#login-button {
   font-size: 20px;
   display: block;
-  float: right;
+  float: left;
+  width: 10%;
+}
+
+#exit-button {
+  font-size: 20px;
+  display: block;
+  float: left;
+  width: 10%;
 }

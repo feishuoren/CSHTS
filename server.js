@@ -3,6 +3,7 @@ const app = express();
 
 const getItems = require('./server/routers/showItems');
 const submitSignin = require('./server/routers/signIn');
+const submitLogin = require('./server/routers/logIn');
 const addSellItem = require('./server/routers/sellItem');
 
 const bodyParser = require('body-parser');
@@ -14,6 +15,7 @@ app.use(bodyParser.urlencoded({limit: '100mb', extended: true}));
 
 app.use('/', getItems);
 app.use('/', submitSignin);
+app.use('/', submitLogin);
 app.use('/', addSellItem);
 
 app.listen(3000, function () {

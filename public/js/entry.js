@@ -15,9 +15,10 @@ import reducer from './reducers/index';
 
 import showItems from './middlewares/showItems';
 import signIn from './middlewares/signIn';
+import logIn from './middlewares/logIn';
 import sellItem from './middlewares/sellItem';
 
-const middleware = applyMiddleware(showItems,signIn,sellItem);
+const middleware = applyMiddleware(showItems,signIn,logIn,sellItem);
 const store = createStore(reducer, middleware);
 
 render((
