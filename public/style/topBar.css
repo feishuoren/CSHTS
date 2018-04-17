@@ -1,8 +1,13 @@
+#top {
+  width: 100%;
+}
+
 #box {
   width: 80%;
   display: flex;
   color: #000;
   margin-left: 10%;
+  margin-top: 1%;
 }
 
 #left_box, #right_box {

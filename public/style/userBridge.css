@@ -1,25 +1,26 @@
-#user-box{
+#user-box {
   overflow: hidden;
 }
 
 #user_cookie {
   font-size: 20px;
   display: block;
-  float: right;
+  float: left;
   width: 15%;
+  padding-left: 16px;
 }
 
 #login-button {
   font-size: 20px;
   display: block;
-  float: left;
+  float: right;
   width: 10%;
 }
 
 #exit-button {
   font-size: 20px;
   display: block;
-  float: left;
+  float: right;
   width: 10%;
 }
 

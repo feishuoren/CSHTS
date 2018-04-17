@@ -21,10 +21,10 @@ export default class UserBridge extends Component {
     });
     return (
       <div id="user-box">
-        <div id="login-button"><Link to='/loginBar'>Log In</Link></div>
         <div id="user_cookie" ref={(c) => this.user_cookie = c}>
           欢迎你，{nickname}
         </div>
+        <div id="login-button"><Link to='/loginBar'>Log In</Link></div>
         <div id="exit-button">
           <a onClick={this.exitLogin.bind(this)}>Exit</a>
         </div>
