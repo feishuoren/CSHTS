@@ -1,0 +1,28 @@
+#user-box{
+  overflow: hidden;
+}
+
+#user_cookie {
+  font-size: 20px;
+  display: block;
+  float: right;
+  width: 15%;
+}
+
+#login-button {
+  font-size: 20px;
+  display: block;
+  float: left;
+  width: 10%;
+}
+
+#exit-button {
+  font-size: 20px;
+  display: block;
+  float: left;
+  width: 10%;
+}
+
+#user-box a {
+  cursor: pointer;
+}

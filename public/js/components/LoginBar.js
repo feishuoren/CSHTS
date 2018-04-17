@@ -8,7 +8,7 @@ export default class LogIn extends Component {
 
   render() {
     return (
-      <div className="content-box">
+      <div id="loginBar" className="content-box">
         <div id="content_left" className="combined-login">
           <LoginContent submitLogin={this.props.submitLogin} fixLoginFlag={this.props.fixLoginFlag} isMatch={this.props.isMatch} userMes={this.props.userMes}/>
         </div>

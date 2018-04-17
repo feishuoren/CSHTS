@@ -68,7 +68,7 @@ export default class SigninContent extends Component {
           <label>Password Again</label><br/>
           <input type="password" ref={(c) => this.password2 = c}/>
 
-          <button type="submit" onClick={this.signIn.bind(this)}>Create Free Account</button>
+          <a onClick={this.signIn.bind(this)}>Create Free Account</a>
           {this.turnPage()}
         </div>
       </div>

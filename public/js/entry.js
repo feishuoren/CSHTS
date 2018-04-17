@@ -10,6 +10,7 @@ import App from './components/App';
 import ShowItems from './containers/ShowItems';
 import SellItem from './containers/SellItem';
 import LoginBar from './containers/LoginBar';
+import PersonalCenter from './components/PersonalCenter';
 
 import reducer from './reducers/index';
 
@@ -30,6 +31,7 @@ render((
             <Route path='/' exact component={ShowItems}/>
             <Route path='/sellItem' component={SellItem}/>
             <Route path='/loginBar' component={LoginBar}/>
+            <Route path='/personalCenter' component={PersonalCenter}/>
           </Switch>
         </App>
       )}/>

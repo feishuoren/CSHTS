@@ -1,0 +1,15 @@
+#personalBox {
+  width: 6%;
+  background-color: #85ff006b;
+  padding: 31px 8px;
+  text-align: center;
+  margin-left: 5%;
+  margin-top: 5%;
+}
+
+.personalBox {
+  padding: 35px 0px;
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}

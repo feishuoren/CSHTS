@@ -59,6 +59,11 @@
   float: left;
 }
 
+#content_right a {
+  padding: 20px 0px;
+  display: inline-block;
+}
+
 .content-box input {
   border: 1px solid #a9a9a9;
   border-radius: 6px;
@@ -68,4 +73,8 @@
   color: #000;
   box-sizing: border-box;
   line-height: 1;
+}
+
+#loginBar a {
+  cursor: pointer;
 }
