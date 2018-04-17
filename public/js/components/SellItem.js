@@ -5,7 +5,7 @@ import '!style-loader!css-loader!./../../style/sellItem.css';
 export default class SellItem extends Component {
   componentDidMount() {
     if (!this.getCookieUser().itemAccount) {
-      window.location = '#/';
+      window.location = '#/loginBar';
     }
   }
 
