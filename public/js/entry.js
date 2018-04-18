@@ -11,6 +11,8 @@ import ShowItems from './containers/ShowItems';
 import SellItem from './containers/SellItem';
 import LoginBar from './containers/LoginBar';
 import PersonalCenter from './components/PersonalCenter';
+import PersonalMessage from './components/PersonalMessage';
+import PersonalItems from './components/PersonalItems';
 
 import reducer from './reducers/index';
 
@@ -19,19 +21,26 @@ import signIn from './middlewares/signIn';
 import logIn from './middlewares/logIn';
 import sellItem from './middlewares/sellItem';
 
-const middleware = applyMiddleware(showItems,signIn,logIn,sellItem);
+const middleware = applyMiddleware(showItems, signIn, logIn, sellItem);
 const store = createStore(reducer, middleware);
 
 render((
   <Provider store={store}>
     <Router>
-      <Route path="/" component={(props) => (
+      <Route path="/" component={(props, match) => (
         <App {...props}>
           <Switch>
             <Route path='/' exact component={ShowItems}/>
             <Route path='/sellItem' component={SellItem}/>
             <Route path='/loginBar' component={LoginBar}/>
-            <Route path='/personalCenter' component={PersonalCenter}/>
+            <Route path='/personalCenter' component={(props)=>(
+              <PersonalCenter {...props}>
+                <Switch>
+                  <Route path='/personalCenter' exact component={PersonalMessage}/>
+                  <Route path='/personalCenter/items' component={PersonalItems}/>
+                </Switch>
+              </PersonalCenter>
+            )}/>
           </Switch>
         </App>
       )}/>

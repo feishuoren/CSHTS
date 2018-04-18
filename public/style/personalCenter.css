@@ -1,10 +1,26 @@
+#personalCenter {
+  margin-top: 5%;
+  overflow: hidden;
+  zoom: 1;
+}
+
+#personalBoxContent {
+  float: right;
+  background-color: #fbffc6;
+  height: 500px;
+  display: inline-block;
+  width: 80%;
+  margin-right: 5%;
+  border-radius: 5px;
+}
+
 #personalBox {
   width: 6%;
-  background-color: #85ff006b;
+  background-color: #ffeefb;
   padding: 31px 8px;
   text-align: center;
   margin-left: 5%;
-  margin-top: 5%;
+  float: left;
 }
 
 .personalBox {

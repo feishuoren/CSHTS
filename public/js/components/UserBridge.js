@@ -5,17 +5,17 @@ import {Link} from 'react-router-dom';
 
 export default class UserBridge extends Component {
   exitLogin() {
-    this.user_cookie.innerHTML = '欢迎你，youke';
+    this.user_cookie.innerHTML = '欢迎你，游客';
     document.cookie = 'nickname=' + '';
     document.cookie = 'sno=' + '';
   }
 
   render() {
-    let nickname = 'youke';
+    let nickname = '游客';
     const cookies = document.cookie.split('; ');
     cookies.find((val) => {
       const cookieName = val.split('=');
-      if (cookieName[0] === 'nickname') {
+      if (cookieName[0] === 'nickname' && cookieName[1] != '') {
         nickname = cookieName[1];
       }
     });
