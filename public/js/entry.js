@@ -10,8 +10,10 @@ import App from './components/App';
 import ShowItems from './containers/ShowItems';
 import SellItem from './containers/SellItem';
 import LoginBar from './containers/LoginBar';
+
 import PersonalCenter from './components/PersonalCenter';
-import PersonalMessage from './components/PersonalMessage';
+
+import PersonalMessage from './containers/GetUserMessage';
 import PersonalItems from './components/PersonalItems';
 
 import reducer from './reducers/index';
@@ -20,8 +22,9 @@ import showItems from './middlewares/showItems';
 import signIn from './middlewares/signIn';
 import logIn from './middlewares/logIn';
 import sellItem from './middlewares/sellItem';
+import getUserMessage from './middlewares/getUserMessage';
 
-const middleware = applyMiddleware(showItems, signIn, logIn, sellItem);
+const middleware = applyMiddleware(showItems, signIn, logIn, sellItem, getUserMessage);
 const store = createStore(reducer, middleware);
 
 render((
