@@ -8,7 +8,7 @@ import {Switch, Route, HashRouter as Router} from 'react-router-dom';
 import App from './components/App';
 
 import ShowItems from './containers/ShowItems';
-import GetItemMessage from './containers/GetItemMessage';
+import GetItemMessage from './containers/ItemMessage';
 import SellItem from './containers/SellItem';
 import LoginBar from './containers/LoginBar';
 
@@ -16,18 +16,21 @@ import PersonalCenter from './components/PersonalCenter';
 
 import PersonalMessage from './containers/GetUserMessage';
 import PersonalItems from './containers/GetUserItems';
+import PersonalComments from './containers/GetUserComments';
 
 import reducer from './reducers/index';
 
 import showItems from './middlewares/showItems';
 import getItemMessage from './middlewares/getItemMessage';
+import addItemComment from './middlewares/addItemComment';
 import signIn from './middlewares/signIn';
 import logIn from './middlewares/logIn';
 import sellItem from './middlewares/sellItem';
 import getUserMessage from './middlewares/getUserMessage';
 import getUserItems from './middlewares/getUserItems';
+import getUserComments from './middlewares/getUserComments';
 
-const middleware = applyMiddleware(showItems, getItemMessage, signIn, logIn, sellItem, getUserMessage, getUserItems);
+const middleware = applyMiddleware(showItems, getItemMessage, addItemComment, signIn, logIn, sellItem, getUserMessage, getUserItems, getUserComments);
 const store = createStore(reducer, middleware);
 
 render((
@@ -45,6 +48,7 @@ render((
                 <Switch>
                   <Route path='/personalCenter' exact component={PersonalMessage}/>
                   <Route path='/personalCenter/items' component={PersonalItems}/>
+                  <Route path='/personalCenter/comments' component={PersonalComments}/>
                 </Switch>
               </PersonalCenter>
             )}/>

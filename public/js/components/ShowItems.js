@@ -19,7 +19,7 @@ export default class Items extends Component {
           state: {itemId: val._id}
         }}>
           <div className="itemPicture">
-            <img height='100px' src={val.itemPicture}/>
+            <img src={val.itemPicture}/>
           </div>
           <div className="itemMessage">
             <div className="itemName">

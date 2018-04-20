@@ -2,7 +2,7 @@ import {connect} from 'react-redux';
 import PersonalItems from '../components/PersonalItems';
 
 const mapStateToProps = (state) => {
-  return {userItems: state.getUserItems.userItems};
+  return {userItems: state.getUserItems.userItems.reverse()};
 };
 
 const mapDispatchToProps = (dispatch)=> {

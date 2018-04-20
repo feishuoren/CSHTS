@@ -24,6 +24,11 @@
   margin: 0 35px;
 }
 
+.itemPicture > img {
+  height: 100px;
+  max-width: 115%
+}
+
 .itemMessage {
   width: 30%;
   float: left;

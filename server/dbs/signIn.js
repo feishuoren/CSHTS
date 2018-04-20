@@ -11,14 +11,19 @@ function signIn(req, callback) {
 
       const collection = database.collection('users');
 
-      collection.find({sno:req.body.sno}).count((err, result)=> {
+      collection.find({sno: req.body.sno}).count((err, result)=> {
 
         if (result > 0) {
           flag = false;
           callback(flag);
         }
         else {
-          collection.insertOne({sno:req.body.sno, password:req.body.password, nickname:req.body.nickname}, (err)=> {
+          collection.insertOne({
+            sno: req.body.sno,
+            password: req.body.password,
+            nickname: req.body.nickname,
+            myComments: []
+          }, (err)=> {
             flag = true;
             callback(flag);
           });

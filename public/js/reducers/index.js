@@ -6,5 +6,15 @@ import logIn from './logIn';
 import addSellItem from './sellItem';
 import getUserMessage from './getUserMessage';
 import getUserItems from './getUserItems';
+import getUserComments from './getUserComments';
 
-export default combineReducers({showItems, getItemMessage, signIn, logIn, addSellItem, getUserMessage, getUserItems});
+export default combineReducers({
+  showItems,
+  getItemMessage,
+  signIn,
+  logIn,
+  addSellItem,
+  getUserMessage,
+  getUserItems,
+  getUserComments
+});

@@ -66,3 +66,13 @@
   display: block;
   float: left;
 }
+
+#itemMes input{
+  border: 1px solid #a9a9a9;
+  border-radius: 6px;
+  width: 90%;
+  padding: 5px 10px;
+  font-size: 16px;
+  color: #000;
+  box-sizing: border-box;
+}

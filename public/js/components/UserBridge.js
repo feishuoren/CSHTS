@@ -8,6 +8,7 @@ export default class UserBridge extends Component {
     this.user_cookie.innerHTML = '欢迎你，游客';
     document.cookie = 'nickname=' + '';
     document.cookie = 'sno=' + '';
+    window.location.href = '/';
   }
 
   render() {
