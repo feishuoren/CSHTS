@@ -7,6 +7,7 @@ const submitSignin = require('./server/routers/signIn');
 const submitLogin = require('./server/routers/logIn');
 const addSellItem = require('./server/routers/sellItem');
 const getUserMessage = require('./server/routers/getUserMessage');
+const getUserItems = require('./server/routers/getUserItems');
 
 const bodyParser = require('body-parser');
 
@@ -21,6 +22,7 @@ app.use('/', submitSignin);
 app.use('/', submitLogin);
 app.use('/', addSellItem);
 app.use('/', getUserMessage);
+app.use('/', getUserItems);
 
 app.listen(3000, function () {
   console.log('listen 3000!');

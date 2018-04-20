@@ -15,7 +15,7 @@ import LoginBar from './containers/LoginBar';
 import PersonalCenter from './components/PersonalCenter';
 
 import PersonalMessage from './containers/GetUserMessage';
-import PersonalItems from './components/PersonalItems';
+import PersonalItems from './containers/GetUserItems';
 
 import reducer from './reducers/index';
 
@@ -25,8 +25,9 @@ import signIn from './middlewares/signIn';
 import logIn from './middlewares/logIn';
 import sellItem from './middlewares/sellItem';
 import getUserMessage from './middlewares/getUserMessage';
+import getUserItems from './middlewares/getUserItems';
 
-const middleware = applyMiddleware(showItems, getItemMessage, signIn, logIn, sellItem, getUserMessage);
+const middleware = applyMiddleware(showItems, getItemMessage, signIn, logIn, sellItem, getUserMessage, getUserItems);
 const store = createStore(reducer, middleware);
 
 render((
