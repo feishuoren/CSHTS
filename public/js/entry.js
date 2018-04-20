@@ -8,6 +8,7 @@ import {Switch, Route, HashRouter as Router} from 'react-router-dom';
 import App from './components/App';
 
 import ShowItems from './containers/ShowItems';
+import GetItemMessage from './containers/GetItemMessage';
 import SellItem from './containers/SellItem';
 import LoginBar from './containers/LoginBar';
 
@@ -19,12 +20,13 @@ import PersonalItems from './components/PersonalItems';
 import reducer from './reducers/index';
 
 import showItems from './middlewares/showItems';
+import getItemMessage from './middlewares/getItemMessage';
 import signIn from './middlewares/signIn';
 import logIn from './middlewares/logIn';
 import sellItem from './middlewares/sellItem';
 import getUserMessage from './middlewares/getUserMessage';
 
-const middleware = applyMiddleware(showItems, signIn, logIn, sellItem, getUserMessage);
+const middleware = applyMiddleware(showItems, getItemMessage, signIn, logIn, sellItem, getUserMessage);
 const store = createStore(reducer, middleware);
 
 render((
@@ -34,6 +36,7 @@ render((
         <App {...props}>
           <Switch>
             <Route path='/' exact component={ShowItems}/>
+            <Route path='/getItemMessage' component={GetItemMessage}/>
             <Route path='/sellItem' component={SellItem}/>
             <Route path='/loginBar' component={LoginBar}/>
             <Route path='/personalCenter' component={(props)=>(

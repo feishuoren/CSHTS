@@ -7,6 +7,7 @@ export default store=>next=>action=> {
         imageDateUrl: action.imageDateUrl,
         itemName: action.itemName,
         itemBrand: action.itemBrand,
+        contactInfo: action.contactInfo,
         itemSynopsis: action.itemSynopsis,
         itemAccount: action.itemAccount,
         itemOwner: action.itemOwner

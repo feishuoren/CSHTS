@@ -31,12 +31,13 @@ export default class SellItem extends Component {
     let imageDateUrl = this.props.imgdataUrl;
     let itemName = this.itemName.value;
     let itemBrand = this.itemBrand.value;
+    let contactInfo = this.contactInfo.value;
     let itemSynopsis = this.itemSynopsis.value;
     let itemOwner = this.getCookieUser().itemOwner;
     let itemAccount = this.getCookieUser().itemAccount;
 
     if (this.imgFile.value === '' || this.itemName.value === ''
-      || this.itemBrand.value === '' || this.itemSynopsis.value === '') {
+      || this.itemBrand.value === '' || this.itemSynopsis.value === '' || this.contactInfo.value === '') {
       this.tip.innerHTML = '信息不完整，请补充！';
       setTimeout(function () {
         this.tip.innerHTML = '';
@@ -49,7 +50,7 @@ export default class SellItem extends Component {
       }, 1000);
     }
     else {
-      this.props.updateItemMessage(imageDateUrl, itemName, itemBrand, itemSynopsis, itemAccount, itemOwner);
+      this.props.updateItemMessage(imageDateUrl, itemName, itemBrand, contactInfo, itemSynopsis, itemAccount, itemOwner);
     }
   }
 
@@ -123,12 +124,17 @@ export default class SellItem extends Component {
                 <span>品牌</span><br />
                 <input id="itemBrand" placeholder="请输入10字以内的品牌名" ref={(c) => this.itemBrand = c}/>
               </div>
+              <div className="msgInput">
+                <span>联系方式</span><br />
+                <input id="contactInfo" placeholder="请输入联系方式eg:QQ33333333" ref={(c) => this.contactInfo = c}/>
+              </div>
             </div>
 
             <div id="itemSyn">
               <div className="msgInput">
                 <div className="itemIntro">简介</div>
-                <div><textarea placeholder="请输入100字以内的简介" rows="5" cols="23" id="itemSynopsis" ref={(c) => this.itemSynopsis = c}/>
+                <div>
+                  <textarea placeholder="请输入100字以内的简介" rows="5" cols="23" id="itemSynopsis" ref={(c) => this.itemSynopsis = c}/>
                 </div>
               </div>
             </div>

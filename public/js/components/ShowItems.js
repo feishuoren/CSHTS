@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import '!style-loader!css-loader!./../../style/showItems.css';
 
+import {Link} from 'react-router-dom';
+
 export default class Items extends Component {
 
   componentWillMount() {
@@ -10,7 +12,12 @@ export default class Items extends Component {
   setItemList() {
     return this.props.itemList.map((val, index) => {
       return <div key={index} className="item">
-        <a herf="#">
+        <Link to={{
+          pathname: '/getItemMessage',
+          search: '?sort=name',
+          hash: '#the-hash',
+          state: {itemId: val._id}
+        }}>
           <div className="itemPicture">
             <img height='100px' src={val.itemPicture}/>
           </div>
@@ -31,7 +38,7 @@ export default class Items extends Component {
           <div className="itemSynopsis">
             简介：{val.itemSynopsis}
           </div>
-        </a>
+        </Link>
       </div>;
     });
   }
