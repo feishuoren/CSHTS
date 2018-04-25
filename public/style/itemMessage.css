@@ -1,0 +1,15 @@
+#itemMesBox {
+  margin: 35px 2%;;
+}
+
+#itemMesPic img {
+  height: 150px;
+}
+
+.commentBox {
+  background-color: #fdfbb5;
+  padding: 7px 25px;
+  border-radius: 5px;
+  font-size: 14px;
+  margin: 10px 2%;
+}

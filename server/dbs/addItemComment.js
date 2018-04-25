@@ -3,6 +3,7 @@ const ObjectID = require('mongodb').ObjectID;
 
 function addItemComment(req, callback) {
   const itemId = req.body.itemId;
+  const itemPicture = req.body.itemPicture;
   const itemName = req.body.itemName;
   const nickname = req.body.nickname;
   const sno = req.body.sno;
@@ -25,7 +26,7 @@ function addItemComment(req, callback) {
       });
 
       userCollection.findOne({sno: sno}, (err, result) => {
-        result.myComments.push({itemId, itemName, comment, addTime});
+        result.myComments.push({itemId, itemPicture, itemName, comment, addTime});
         userCollection.save(result);
       });
 

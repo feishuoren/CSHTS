@@ -35,9 +35,8 @@ export default class PersonalMessage extends Component {
 
     return (
       <div>
-        nickname:{nickname}
-        sno:{sno}
-        联系方式：
+        <div>昵称：{nickname}</div>
+        <div>学号：{sno}</div>
       </div>
     );
   }

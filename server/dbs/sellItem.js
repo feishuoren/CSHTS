@@ -8,6 +8,7 @@ function sellItem(req, callback) {
   const itemName = req.body.itemName;
   const itemBrand = req.body.itemBrand;
   const contactInfo = req.body.contactInfo;
+  const itemPrice = req.body.itemPrice;
   const itemSynopsis = req.body.itemSynopsis;
   const itemAccount = req.body.itemAccount;
   const itemOwner = req.body.itemOwner;
@@ -17,27 +18,17 @@ function sellItem(req, callback) {
   if (imageDateUrl && typeof imageDateUrl === 'string') {
     const itemPicture = addItemPic(path, imageDateUrl, itemName, itemAccount);
 
-    cn.MongoClient.connect(cn.url, (err, db)=> {
+    cn.MongoClient.connect(cn.url, (err, db) => {
       const collection = db.collection('items');
-      const usersCollection = db.collection('users');
 
       collection.insertOne({
-        itemPicture, itemName, itemBrand, contactInfo,
+        itemPicture, itemName, itemBrand, contactInfo, itemPrice,
         itemSynopsis, itemAccount, itemOwner, itemStatus, itemComments
-      }, (err, insertResult)=> {
+      }, (err, insertResult) => {
         if (insertResult.result.ok === 1) {
           flag = 'success';
         }
         callback(flag);
-      });
-
-      usersCollection.updateOne({name: itemOwner}, {
-        $push: {
-          'myItems': {
-            itemPicture, itemName, itemBrand,
-            itemSynopsis, itemStatus
-          }
-        }
       });
 
     });
@@ -72,8 +63,8 @@ function addItemPic(path, imageDateUrl, itemName, itemAccount) {
 
     }
 
-    fs.exists(ItemSrc,function (exists) {
-      if(exists){
+    fs.exists(ItemSrc, function (exists) {
+      if (exists) {
         fs.unlink(ItemSrc, function (err) {
           if (err) {
             return console.error(err);
@@ -108,7 +99,7 @@ function addItemPic(path, imageDateUrl, itemName, itemAccount) {
 function getNowFormatDate() {
   const date = new Date();
   const dateArr = [date.getFullYear(), date.getMonth() + 1, date.getDate(), date.getHours(), date.getMinutes(), date.getSeconds()];
-  const currentDate = dateArr.map((e)=> e < 10 ? ('0' + e) : e).join('');
+  const currentDate = dateArr.map((e) => e < 10 ? ('0' + e) : e).join('');
 
   return currentDate;
 }

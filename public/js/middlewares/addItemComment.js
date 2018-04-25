@@ -7,6 +7,7 @@ export default store =>next=>action=> {
     request.post('/addItemComment')
       .send({
         itemId: action.itemId,
+        itemPicture: action.itemPicture,
         itemName: action.itemName,
         nickname: action.nickname,
         sno: action.sno,

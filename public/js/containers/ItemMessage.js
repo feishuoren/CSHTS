@@ -10,8 +10,8 @@ const mapDispatchToProps = (dispatch)=> {
     getItemMessage: (itemId)=> {
       dispatch({type: 'GETITEMMESSAGE', itemId});
     },
-    addComment: (itemId, itemName, nickname, sno, comment)=> {
-      dispatch({type: 'ADDCOMMENT', itemId, itemName, nickname, sno, comment});
+    addComment: (itemId, itemPicture, itemName, nickname, sno, comment)=> {
+      dispatch({type: 'ADDCOMMENT', itemId, itemPicture, itemName, nickname, sno, comment});
     }
   };
 };

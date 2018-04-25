@@ -8,6 +8,7 @@ export default store=>next=>action=> {
         itemName: action.itemName,
         itemBrand: action.itemBrand,
         contactInfo: action.contactInfo,
+        itemPrice: action.itemPrice,
         itemSynopsis: action.itemSynopsis,
         itemAccount: action.itemAccount,
         itemOwner: action.itemOwner

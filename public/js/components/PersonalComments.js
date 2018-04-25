@@ -36,14 +36,20 @@ export default class PersonalComments extends Component {
           state: {itemId: ele.itemId}
         }}>
           <div>
-            商品：{ele.itemName}
+            <img src={ele.itemPicture}/>
           </div>
-          <div>
-            评论：{ele.comment}
+          <div className="commentContent">
+            <div>
+              商品：{ele.itemName}
+            </div>
+            <div>
+              评论：{ele.comment}
+            </div>
+            <div>
+              {ele.addTime}
+            </div>
           </div>
-          <div>
-            {ele.addTime}
-          </div>
+
         </Link>
       </div>;
     });

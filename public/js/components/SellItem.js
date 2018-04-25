@@ -32,12 +32,13 @@ export default class SellItem extends Component {
     let itemName = this.itemName.value;
     let itemBrand = this.itemBrand.value;
     let contactInfo = this.contactInfo.value;
+    let itemPrice = this.itemPrice.value;
     let itemSynopsis = this.itemSynopsis.value;
     let itemOwner = this.getCookieUser().itemOwner;
     let itemAccount = this.getCookieUser().itemAccount;
 
-    if (this.imgFile.value === '' || this.itemName.value === ''
-      || this.itemBrand.value === '' || this.itemSynopsis.value === '' || this.contactInfo.value === '') {
+    if (this.imgFile.value === '' || this.itemName.value === '' || this.itemBrand.value === ''
+      || this.itemPrice.value === '' || this.itemSynopsis.value === '' || this.contactInfo.value === '') {
       this.tip.innerHTML = '信息不完整，请补充！';
       setTimeout(function () {
         this.tip.innerHTML = '';
@@ -50,7 +51,7 @@ export default class SellItem extends Component {
       }, 1000);
     }
     else {
-      this.props.updateItemMessage(imageDateUrl, itemName, itemBrand, contactInfo, itemSynopsis, itemAccount, itemOwner);
+      this.props.updateItemMessage(imageDateUrl, itemName, itemBrand, contactInfo, itemPrice, itemSynopsis, itemAccount, itemOwner);
     }
   }
 
@@ -89,7 +90,7 @@ export default class SellItem extends Component {
         let reader = new FileReader();
         reader.readAsDataURL(file);
 
-        reader.addEventListener('load', ()=> {
+        reader.addEventListener('load', () => {
           let image = new Image();
           image.height = 100;
           image.title = file.name;
@@ -117,20 +118,24 @@ export default class SellItem extends Component {
 
             <div id="itemMes">
               <div className="msgInput">
-                <span>商品名</span><br />
+                <span>商品名</span><br/>
                 <input id="itemName" placeholder="请输入10字以内的商品名" ref={(c) => this.itemName = c}/>
               </div>
               <div className="msgInput">
-                <span>品牌</span><br />
+                <span>品牌</span><br/>
                 <input id="itemBrand" placeholder="请输入10字以内的品牌名" ref={(c) => this.itemBrand = c}/>
               </div>
               <div className="msgInput">
-                <span>联系方式</span><br />
+                <span>联系方式</span><br/>
                 <input id="contactInfo" placeholder="请输入联系方式eg:QQ33333333" ref={(c) => this.contactInfo = c}/>
               </div>
             </div>
 
             <div id="itemSyn">
+              <div className="msgInput">
+                <span>价格</span><br/>
+                <input id="itemPrice" placeholder="请输入价格" ref={(c) => this.itemPrice = c}/>元
+              </div>
               <div className="msgInput">
                 <div className="itemIntro">简介</div>
                 <div>

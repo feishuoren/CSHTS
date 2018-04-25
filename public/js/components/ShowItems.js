@@ -29,7 +29,7 @@ export default class Items extends Component {
               厂牌：{val.itemBrand}
             </div>
             <div className="itemOwner">
-              拥有者：{val.itemOwner}
+              价格：{val.itemPrice}元
             </div>
             <div className="itemStatus">
               状态：{val.itemStatus == true ? '出售中' : '已售出'}
