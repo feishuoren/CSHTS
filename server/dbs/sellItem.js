@@ -72,22 +72,26 @@ function addItemPic(path, imageDateUrl, itemName, itemAccount) {
 
     }
 
-    if (fs.exists(path)) {
-
-      fs.unlink(ItemSrc, function (err) {
-        if (err) {
-          return console.error(err);
-        }
-        console.log('文件删除成功！');
-      });
-    }
+    fs.exists(ItemSrc,function (exists) {
+      if(exists){
+        fs.unlink(ItemSrc, function (err) {
+          if (err) {
+            return console.error(err);
+          }
+          console.log('文件删除成功！');
+        });
+      }
+    });
 
     fs.open(ItemSrc, 'w', function (err, fd) {
       if (err) {
         console.error(err);
         return;
       } else {
-        fs.writeFile(ItemSrc, buffer);
+        fs.writeFile(ItemSrc, buffer, function (err) {
+          if (err) throw err;
+          console.log('文件写入成功');
+        });
         fs.close(fd, function (err) {
           if (err) {
             console.log(err);
