@@ -46,7 +46,7 @@ export default class PersonalItems extends Component {
               厂牌：{val.itemBrand}
             </div>
             <div className="itemOwner">
-              拥有者：{val.itemOwner}
+              价格：{val.itemPrice}元
             </div>
             <div className="itemStatus">
               状态：{val.itemStatus == true ? '出售中' : '已售出'}
@@ -56,6 +56,9 @@ export default class PersonalItems extends Component {
             简介：{val.itemSynopsis}
           </div>
         </Link>
+        <div className="itemOptions">
+          <button onClick={(e) => this.props.deleteUserItem(val._id, this.getCookieUser())}>删除</button>
+        </div>
       </div>;
     });
   }

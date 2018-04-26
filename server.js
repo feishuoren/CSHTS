@@ -9,6 +9,7 @@ const submitLogin = require('./server/routers/logIn');
 const addSellItem = require('./server/routers/sellItem');
 const getUserMessage = require('./server/routers/getUserMessage');
 const getUserItems = require('./server/routers/getUserItems');
+const deleteUserItem = require('./server/routers/deleteUserItem');
 const getUserComments = require('./server/routers/getUserComments');
 
 const bodyParser = require('body-parser');
@@ -26,6 +27,7 @@ app.use('/', submitLogin);
 app.use('/', addSellItem);
 app.use('/', getUserMessage);
 app.use('/', getUserItems);
+app.use('/', deleteUserItem);
 app.use('/', getUserComments);
 
 app.listen(3000, function () {

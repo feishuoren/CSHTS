@@ -51,3 +51,15 @@
   display: inline-block;
   margin-left: 10px;
 }
+
+.itemOptions {
+  float: right;
+}
+
+#personalBoxContent .item a{
+  width: 80%;
+  display: inline-block;
+}
+#personalBoxContent .item a:hover {
+  width: 80%;
+}

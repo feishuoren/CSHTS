@@ -1,11 +1,11 @@
 import {combineReducers} from 'redux';
 import showItems from './showItems';
-import getItemMessage from './getItemMessage';
+import getItemMessage from './itemMessage';
 import signIn from './signIn';
 import logIn from './logIn';
 import addSellItem from './sellItem';
 import getUserMessage from './getUserMessage';
-import getUserItems from './getUserItems';
+import userItems from './userItems';
 import getUserComments from './getUserComments';
 
 export default combineReducers({
@@ -15,6 +15,6 @@ export default combineReducers({
   logIn,
   addSellItem,
   getUserMessage,
-  getUserItems,
+  userItems,
   getUserComments
 });
