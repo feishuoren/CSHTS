@@ -8,7 +8,7 @@ import {Switch, Route, HashRouter as Router} from 'react-router-dom';
 import App from './components/App';
 
 import ShowItems from './containers/ShowItems';
-import GetItemMessage from './containers/ItemMessage';
+import ItemMessage from './containers/ItemMessage';
 import SellItem from './containers/SellItem';
 import LoginBar from './containers/LoginBar';
 
@@ -16,7 +16,7 @@ import PersonalCenter from './components/PersonalCenter';
 
 import PersonalMessage from './containers/GetUserMessage';
 import PersonalItems from './containers/UserItems';
-import PersonalComments from './containers/GetUserComments';
+import PersonalComments from './containers/UserComments';
 
 import reducer from './reducers/index';
 
@@ -30,8 +30,10 @@ import getUserMessage from './middlewares/getUserMessage';
 import getUserItems from './middlewares/getUserItems';
 import deleteUserItem from './middlewares/deleteUserItem';
 import getUserComments from './middlewares/getUserComments';
+import deleteUserComment from './middlewares/deleteUserComment';
 
-const middleware = applyMiddleware(showItems, getItemMessage, addItemComment, signIn, logIn, sellItem, getUserMessage, getUserItems, deleteUserItem, getUserComments);
+const middleware = applyMiddleware(showItems, getItemMessage, addItemComment, signIn, logIn, sellItem, getUserMessage,
+  getUserItems, deleteUserItem, getUserComments, deleteUserComment);
 const store = createStore(reducer, middleware);
 
 render((
@@ -41,7 +43,7 @@ render((
         <App {...props}>
           <Switch>
             <Route path='/' exact component={ShowItems}/>
-            <Route path='/getItemMessage' component={GetItemMessage}/>
+            <Route path='/getItemMessage' component={ItemMessage}/>
             <Route path='/sellItem' component={SellItem}/>
             <Route path='/loginBar' component={LoginBar}/>
             <Route path='/personalCenter' component={(props) => (

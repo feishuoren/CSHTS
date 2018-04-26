@@ -6,7 +6,7 @@ import logIn from './logIn';
 import addSellItem from './sellItem';
 import getUserMessage from './getUserMessage';
 import userItems from './userItems';
-import getUserComments from './getUserComments';
+import userComments from './userComments';
 
 export default combineReducers({
   showItems,
@@ -16,5 +16,5 @@ export default combineReducers({
   addSellItem,
   getUserMessage,
   userItems,
-  getUserComments
+  userComments
 });

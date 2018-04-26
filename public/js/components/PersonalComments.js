@@ -3,10 +3,10 @@ import {Link} from 'react-router-dom';
 
 export default class PersonalComments extends Component {
   componentWillMount() {
-    if (!this.getCookieUser()) {
+    if (!this.getCookieUser().sno) {
       window.location = '#/loginBar';
     } else {
-      const userSno = this.getCookieUser();
+      const userSno = this.getCookieUser().sno;
       this.props.getUserComments(userSno);
     }
   }
@@ -19,15 +19,20 @@ export default class PersonalComments extends Component {
       let cookie = val.split('=');
       let cookieName = cookie[0];
       let cookieValue = cookie[1];
+      if (cookieName === 'nickname') {
+        nickname = cookieValue;
+      }
       if (cookieName === 'sno') {
         sno = cookieValue;
       }
     });
-    return sno;
+    return {nickname, sno};
   }
 
   setCommentList() {
     return this.props.userComments.map((ele, index) => {
+      const nickname = this.getCookieUser().nickname;
+      const sno = this.getCookieUser().sno;
       return <div key={index} className="commentBox">
         <Link to={{
           pathname: '/getItemMessage',
@@ -49,8 +54,12 @@ export default class PersonalComments extends Component {
               {ele.addTime}
             </div>
           </div>
-
         </Link>
+        <div className="commentOptions">
+          <button onClick={(e) => this.props.deleteUserComment(nickname, sno, ele)}>
+            删除
+          </button>
+        </div>
       </div>;
     });
   }

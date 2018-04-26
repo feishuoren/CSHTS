@@ -56,6 +56,10 @@
   float: right;
 }
 
+.commentOptions {
+  float: right;
+}
+
 #personalBoxContent .item a{
   width: 80%;
   display: inline-block;
