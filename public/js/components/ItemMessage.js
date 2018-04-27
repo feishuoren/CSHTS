@@ -75,7 +75,7 @@ export default class ItemMessage extends Component {
           </div>
           <div>名称:{itemName}</div>
           <div>厂牌:{itemBrand}</div>
-          <div>价格:{itemPrice}</div>
+          <div>价格:{itemPrice}元</div>
           <div>联系方式：{contactInfo}</div>
           <div>简介:{itemSynopsis}</div>
         </div>
