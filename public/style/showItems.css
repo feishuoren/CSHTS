@@ -30,14 +30,14 @@
 }
 
 .itemMessage {
-  width: 30%;
+  width: 28%;
   float: left;
 }
 
 .itemSynopsis {
   float: left;
   display: block;
-  width: 52%;
+  width: 50%;
 }
 
 #items {

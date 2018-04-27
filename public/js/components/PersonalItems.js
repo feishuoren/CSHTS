@@ -57,6 +57,9 @@ export default class PersonalItems extends Component {
           </div>
         </Link>
         <div className="itemOptions">
+          <Link to='/'>
+            <button>修改</button>
+          </Link>
           <button onClick={(e) => this.props.deleteUserItem(val._id, this.getCookieUser())}>删除</button>
         </div>
       </div>;

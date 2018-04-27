@@ -60,10 +60,18 @@
   float: right;
 }
 
+.itemOptions a:hover {
+  padding: initial;
+  margin: initial;
+  display: initial;
+  background-color: initial;
+}
+
 #personalBoxContent .item a{
   width: 80%;
   display: inline-block;
 }
+
 #personalBoxContent .item a:hover {
   width: 80%;
 }
