@@ -3,6 +3,7 @@ const app = express();
 
 const getItems = require('./server/routers/showItems');
 const getItemMessage = require('./server/routers/getItemMessage');
+const updateItemMessage = require('./server/routers/updateItemMessage');
 const addItemComment = require('./server/routers/addItemComment');
 const submitSignin = require('./server/routers/signIn');
 const submitLogin = require('./server/routers/logIn');
@@ -22,6 +23,7 @@ app.use(bodyParser.urlencoded({limit: '100mb', extended: true}));
 
 app.use('/', getItems);
 app.use('/', getItemMessage);
+app.use('/', updateItemMessage);
 app.use('/', addItemComment);
 app.use('/', submitSignin);
 app.use('/', submitLogin);

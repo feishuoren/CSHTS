@@ -3,7 +3,7 @@ export default (state = {imgdataUrl: '', result: ''}, action)=> {
     case 'ADDSELLITEM': {
       return {imgdataUrl: action.imgdataUrl};
     }
-    case 'UPDATEITEMMESSAGE': {
+    case 'ADDITEMMESSAGE': {
       return {result: action.result};
     }
   }

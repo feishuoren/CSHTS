@@ -9,6 +9,7 @@ import App from './components/App';
 
 import ShowItems from './containers/ShowItems';
 import ItemMessage from './containers/ItemMessage';
+import UpdateItemMessage from './containers/UpdateItemMessage';
 import SellItem from './containers/SellItem';
 import LoginBar from './containers/LoginBar';
 
@@ -22,6 +23,7 @@ import reducer from './reducers/index';
 
 import showItems from './middlewares/showItems';
 import getItemMessage from './middlewares/getItemMessage';
+import updateItemMessage from './middlewares/updateItemMessage';
 import addItemComment from './middlewares/addItemComment';
 import signIn from './middlewares/signIn';
 import logIn from './middlewares/logIn';
@@ -32,7 +34,7 @@ import deleteUserItem from './middlewares/deleteUserItem';
 import getUserComments from './middlewares/getUserComments';
 import deleteUserComment from './middlewares/deleteUserComment';
 
-const middleware = applyMiddleware(showItems, getItemMessage, addItemComment, signIn, logIn, sellItem, getUserMessage,
+const middleware = applyMiddleware(showItems, getItemMessage, updateItemMessage, addItemComment, signIn, logIn, sellItem, getUserMessage,
   getUserItems, deleteUserItem, getUserComments, deleteUserComment);
 const store = createStore(reducer, middleware);
 
@@ -44,6 +46,7 @@ render((
           <Switch>
             <Route path='/' exact component={ShowItems}/>
             <Route path='/getItemMessage' component={ItemMessage}/>
+            <Route path='/updateItemMessage' component={UpdateItemMessage}/>
             <Route path='/sellItem' component={SellItem}/>
             <Route path='/loginBar' component={LoginBar}/>
             <Route path='/personalCenter' component={(props) => (

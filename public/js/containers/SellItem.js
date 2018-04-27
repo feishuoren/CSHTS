@@ -15,7 +15,7 @@ const mapDispatchToprops = (dispatch)=> {
     },
     updateItemMessage: (imageDateUrl, itemName, itemBrand, contactInfo, itemPrice, itemSynopsis, itemAccount, itemOwner)=> {
       dispatch({
-        type: 'UPDATEITEMMESSAGE',
+        type: 'ADDITEMMESSAGE',
         imageDateUrl,
         itemName,
         itemBrand,

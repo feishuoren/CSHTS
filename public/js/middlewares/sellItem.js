@@ -1,7 +1,7 @@
 import request from 'superagent';
 
 export default store=>next=>action=> {
-  if (action.type === 'UPDATEITEMMESSAGE') {
+  if (action.type === 'ADDITEMMESSAGE') {
     request.post('/addSellItem')
       .send({
         imageDateUrl: action.imageDateUrl,
