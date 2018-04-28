@@ -24,7 +24,7 @@ export default class ItemMessage extends Component {
   }
 
   submitComment() {
-    if (!this.getCookieUser()) {
+    if (!this.getCookieUser().sno) {
       window.location = '#/loginBar';
     } else {
       if (this.inputComment.value) {
