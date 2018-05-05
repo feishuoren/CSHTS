@@ -51,24 +51,24 @@ export default class SigninContent extends Component {
   render() {
     return (
       <div className="register-content">
-        <h1>Sign Up, It's Free!</h1>
+        <h1>注册</h1>
 
         <div className="column-left">
-          <label>StudentNumber</label><br/>
+          <label>学号</label><br/>
           <input type="text" ref={(c) => this.sno = c} onBlur={this.verifySno.bind(this)}/>
           <br/>
-          <label>Password</label><br/>
+          <label>密码</label><br/>
           <input type="password" ref={(c) => this.password = c}/>
           <div id="tip" ref={(c) => this.tip = c}></div>
         </div>
         <div className="column-right">
-          <label>Nickname</label><br/>
+          <label>昵称</label><br/>
           <input type="text" ref={(c) => this.nickname = c}/>
           <br/>
-          <label>Password Again</label><br/>
+          <label>确认密码</label><br/>
           <input type="password" ref={(c) => this.password2 = c}/>
 
-          <a onClick={this.signIn.bind(this)}>Create Free Account</a>
+          <a onClick={this.signIn.bind(this)}>创建账户</a>
           {this.turnPage()}
         </div>
       </div>

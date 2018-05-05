@@ -34,17 +34,17 @@ export default class LoginContent extends Component {
   render() {
     return (
       <div className="login-content">
-        <h1>Student Login</h1>
+        <h1>登录</h1>
 
         <form id="login-form">
-          <label>StudentNumber</label><br/>
+          <label>学号</label><br/>
           <input type="text" ref={(c)=>this.inputSno = c}/>
           <br/>
-          <label>Password</label><br/>
+          <label>密码</label><br/>
           <input type="password" ref={(c)=>this.inputPassword = c}/>
 
-          <p className="forgot-password-callout"><a href="#">I forgot my login!</a></p>
-          <p className="submit-login"><a onClick={this.logIn.bind(this)}>Log In</a></p>
+          <p className="forgot-password-callout"><a href="#">忘记密码</a></p>
+          <p className="submit-login"><a onClick={this.logIn.bind(this)}>登录</a></p>
 
           <div id="loginTip" ref={(c) => this.loginTip = c}></div>
           {this.setTip()}

@@ -25,9 +25,9 @@ export default class UserBridge extends Component {
         <div id="user_cookie" ref={(c) => this.user_cookie = c}>
           欢迎你，{nickname}
         </div>
-        <div id="login-button"><Link to='/loginBar'>Log In</Link></div>
+        <div id="login-button"><Link to='/loginBar'>注册登录</Link></div>
         <div id="exit-button">
-          <a onClick={this.exitLogin.bind(this)}>Exit</a>
+          <a onClick={this.exitLogin.bind(this)}>退出</a>
         </div>
       </div>
     );
