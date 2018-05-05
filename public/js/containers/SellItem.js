@@ -13,7 +13,7 @@ const mapDispatchToprops = (dispatch)=> {
     getImgData: (imgdataUrl)=> {
       dispatch({type: 'ADDSELLITEM', imgdataUrl});
     },
-    updateItemMessage: (imageDateUrl, itemName, itemBrand, contactInfo, itemPrice, itemSynopsis, itemAccount, itemOwner)=> {
+    updateItemMessage: (imageDateUrl, itemName, itemBrand, contactInfo, itemPrice, itemType, itemSynopsis, itemAccount, itemOwner)=> {
       dispatch({
         type: 'ADDITEMMESSAGE',
         imageDateUrl,
@@ -21,6 +21,7 @@ const mapDispatchToprops = (dispatch)=> {
         itemBrand,
         contactInfo,
         itemPrice,
+        itemType,
         itemSynopsis,
         itemAccount,
         itemOwner

@@ -33,6 +33,7 @@ export default class SellItem extends Component {
     let itemBrand = this.itemBrand.value;
     let contactInfo = this.contactInfo.value;
     let itemPrice = this.itemPrice.value;
+    let itemType = this.itemType.options[this.itemType.selectedIndex].value;
     let itemSynopsis = this.itemSynopsis.value;
     let itemOwner = this.getCookieUser().itemOwner;
     let itemAccount = this.getCookieUser().itemAccount;
@@ -51,7 +52,7 @@ export default class SellItem extends Component {
       }, 1000);
     }
     else {
-      this.props.updateItemMessage(imageDateUrl, itemName, itemBrand, contactInfo, itemPrice, itemSynopsis, itemAccount, itemOwner);
+      this.props.updateItemMessage(imageDateUrl, itemName, itemBrand, contactInfo, itemPrice, itemType, itemSynopsis, itemAccount, itemOwner);
     }
   }
 
@@ -135,6 +136,17 @@ export default class SellItem extends Component {
               <div className="msgInput">
                 <span>价格</span><br/>
                 <input id="itemPrice" placeholder="请输入价格" ref={(c) => this.itemPrice = c}/>元
+              </div>
+              <div className="msgInput">
+                <span>类型</span><br/>
+                <select id="itemType" ref={(c) => this.itemType = c}>
+                  <option value ="数码家电">数码家电</option>
+                  <option value ="闲置图书">闲置图书</option>
+                  <option value="学习用品">学习用品</option>
+                  <option value="生活用品">生活用品</option>
+                  <option value="服装鞋包">服装鞋包</option>
+                  <option value="其它">其它</option>
+                </select>
               </div>
               <div className="msgInput">
                 <div className="itemIntro">简介</div>

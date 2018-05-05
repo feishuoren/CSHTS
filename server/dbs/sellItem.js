@@ -9,6 +9,7 @@ function sellItem(req, callback) {
   const itemBrand = req.body.itemBrand;
   const contactInfo = req.body.contactInfo;
   const itemPrice = req.body.itemPrice;
+  const itemType = req.body.itemType;
   const itemSynopsis = req.body.itemSynopsis;
   const itemAccount = req.body.itemAccount;
   const itemOwner = req.body.itemOwner;
@@ -22,7 +23,7 @@ function sellItem(req, callback) {
       const collection = db.collection('items');
 
       collection.insertOne({
-        itemPicture, itemName, itemBrand, contactInfo, itemPrice,
+        itemPicture, itemName, itemBrand, contactInfo, itemPrice, itemType,
         itemSynopsis, itemAccount, itemOwner, itemStatus, itemComments
       }, (err, insertResult) => {
         if (insertResult.result.ok === 1) {

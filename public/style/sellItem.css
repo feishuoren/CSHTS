@@ -46,7 +46,7 @@
 }
 
 #sellContent {
-  height: 200px;
+  height: 230px;
   background-color: #9da0a4;
 }
 
@@ -67,7 +67,7 @@
   float: left;
 }
 
-#itemMes input{
+#itemMes input {
   border: 1px solid #a9a9a9;
   border-radius: 6px;
   width: 90%;
