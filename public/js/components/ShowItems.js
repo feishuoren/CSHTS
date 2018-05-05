@@ -3,14 +3,17 @@ import '!style-loader!css-loader!./../../style/showItems.css';
 
 import {Link} from 'react-router-dom';
 
+import ItemTypeList from './ItemTypeList';
+
 export default class Items extends Component {
 
   componentWillMount() {
+
     this.props.showItems();
   }
 
   setItemList() {
-    return this.props.itemList.map((val, index) => {
+    return this.props.showItemList.map((val, index) => {
       return <div key={index} className="item">
         <Link to={{
           pathname: '/getItemMessage',
@@ -45,10 +48,11 @@ export default class Items extends Component {
 
   render() {
 
-    const itemList = Array.isArray(this.props.itemList) && this.props.itemList.length > 0 ? this.setItemList() : '暂时没有商品，等待你来发掘';
+    const itemList = Array.isArray(this.props.showItemList) && this.props.showItemList.length > 0 ? this.setItemList() : '暂时没有商品，等待你来发掘';
 
     return (
       <div id="itemList">
+        <ItemTypeList itemList={this.props.itemList} filterItemList={this.props.filterItemList}/>
         <div id="items">
           {itemList}
         </div>

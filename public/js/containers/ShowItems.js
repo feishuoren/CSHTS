@@ -2,13 +2,19 @@ import {connect} from 'react-redux';
 import ShowItems from '../components/ShowItems';
 
 const mapStateToProps = (state) => {
-  return {itemList: state.showItems.itemList};
+  return {
+    itemList: state.showItems.itemList,
+    showItemList: state.showItems.showItemList
+  };
 };
 
-const mapDispatchToProps = (dispatch)=> {
+const mapDispatchToProps = (dispatch) => {
   return {
-    showItems: ()=> {
+    showItems: () => {
       dispatch({type: 'SHOWITEMS'});
+    },
+    filterItemList: (showItemList) => {
+      dispatch({type: 'FILTERITEMLIST', showItemList});
     }
   };
 };
