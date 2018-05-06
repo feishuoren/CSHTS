@@ -17,11 +17,25 @@ export default class Items extends Component {
       return;
     }
     const searchContent = this.searchContent.value;
-    const showItemList = this.props.itemList.filter(ele => this.isMatch(ele.itemName, searchContent));
+    const selectType = this.selectType.options[this.selectType.selectedIndex].value;
+    const showItemList = this.filterType(this.props.itemList, selectType, searchContent);
+
     this.props.filterItemList(showItemList);
     setTimeout(() => {
       this.searchContent.value = null;
     }, 1000);
+  }
+
+  filterType(itemList, selectType, searchContent) {
+    let showItemList;
+    if (selectType === '名称') {
+      showItemList = itemList.filter(ele => this.isMatch(ele.itemName, searchContent));
+    }
+    if (selectType === '品牌') {
+      showItemList = itemList.filter(ele => this.isMatch(ele.itemBrand, searchContent));
+    }
+
+    return showItemList;
   }
 
   isMatch(itemContent, searchContent) {
@@ -68,7 +82,13 @@ export default class Items extends Component {
 
     return (
       <div id="itemList">
-        <input placeholder="请输入要搜索的内容" ref={(c) => this.searchContent = c} onKeyDown={this.handleKeyDown.bind(this)}/>
+        <div id="searchBox">
+          <select id="selectType" ref={(c) => this.selectType = c}>
+            <option value="名称">名称</option>
+            <option value="品牌">品牌</option>
+          </select>
+          <input id="searchContent" placeholder="请输入要搜索的内容" ref={(c) => this.searchContent = c} onKeyDown={this.handleKeyDown.bind(this)}/>
+        </div>
         <ItemTypeList itemList={this.props.itemList} filterItemList={this.props.filterItemList}/>
         <div id="items">
           {itemList}

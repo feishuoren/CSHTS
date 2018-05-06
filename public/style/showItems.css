@@ -63,3 +63,13 @@
 #itemTypeList li:hover {
   cursor: pointer;
 }
+
+#searchBox {
+  width: 30%;
+  margin: 2px auto;
+}
+
+#searchBox #searchContent{
+  line-height: 25px;
+  width: 300px;
+}
