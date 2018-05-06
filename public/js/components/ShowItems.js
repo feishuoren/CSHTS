@@ -17,8 +17,15 @@ export default class Items extends Component {
       return;
     }
     const searchContent = this.searchContent.value;
-    const showItemList = this.props.itemList.filter(ele => ele.itemName === searchContent);
+    const showItemList = this.props.itemList.filter(ele => this.isMatch(ele.itemName, searchContent));
     this.props.filterItemList(showItemList);
+    setTimeout(() => {
+      this.searchContent.value = null;
+    }, 1000);
+  }
+
+  isMatch(itemContent, searchContent) {
+    return itemContent === searchContent;
   }
 
   setItemList() {
