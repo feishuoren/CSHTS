@@ -12,6 +12,15 @@ export default class Items extends Component {
     this.props.showItems();
   }
 
+  handleKeyDown(event) {
+    if (event.keyCode !== 13) {
+      return;
+    }
+    const searchContent = this.searchContent.value;
+    const showItemList = this.props.itemList.filter(ele => ele.itemName === searchContent);
+    this.props.filterItemList(showItemList);
+  }
+
   setItemList() {
     return this.props.showItemList.map((val, index) => {
       return <div key={index} className="item">
@@ -52,6 +61,7 @@ export default class Items extends Component {
 
     return (
       <div id="itemList">
+        <input placeholder="请输入要搜索的内容" ref={(c) => this.searchContent = c} onKeyDown={this.handleKeyDown.bind(this)}/>
         <ItemTypeList itemList={this.props.itemList} filterItemList={this.props.filterItemList}/>
         <div id="items">
           {itemList}
