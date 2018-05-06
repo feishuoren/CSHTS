@@ -25,7 +25,7 @@ export default class Items extends Component {
   }
 
   isMatch(itemContent, searchContent) {
-    return itemContent === searchContent;
+    return itemContent.indexOf(searchContent) >= 0;
   }
 
   setItemList() {
