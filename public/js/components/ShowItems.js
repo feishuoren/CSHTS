@@ -8,10 +8,22 @@ import ItemTypeList from './ItemTypeList';
 export default class Items extends Component {
 
   componentWillMount() {
-
     this.props.showItems();
   }
 
+  render() {
+
+    return (
+      <div id="itemList">
+        <SearchBox itemList={this.props.itemList} filterItemList={this.props.filterItemList}/>
+        <ItemTypeList itemList={this.props.itemList} filterItemList={this.props.filterItemList}/>
+        <ItemList showItemList={this.props.showItemList}/>
+      </div>
+    );
+  }
+}
+
+class SearchBox extends Component {
   handleKeyDown(event) {
     if (event.keyCode !== 13) {
       return;
@@ -42,6 +54,20 @@ export default class Items extends Component {
     return itemContent.indexOf(searchContent) >= 0;
   }
 
+  render() {
+    return (
+      <div id="searchBox">
+        <select id="selectType" ref={(c) => this.selectType = c}>
+          <option value="名称">名称</option>
+          <option value="品牌">品牌</option>
+        </select>
+        <input id="searchContent" placeholder="请输入要搜索的内容" ref={(c) => this.searchContent = c} onKeyDown={this.handleKeyDown.bind(this)}/>
+      </div>
+    );
+  }
+}
+
+class ItemList extends Component {
   setItemList() {
     return this.props.showItemList.map((val, index) => {
       return <div key={index} className="item">
@@ -77,22 +103,11 @@ export default class Items extends Component {
   }
 
   render() {
-
     const itemList = Array.isArray(this.props.showItemList) && this.props.showItemList.length > 0 ? this.setItemList() : '暂时没有商品，等待你来发掘';
 
     return (
-      <div id="itemList">
-        <div id="searchBox">
-          <select id="selectType" ref={(c) => this.selectType = c}>
-            <option value="名称">名称</option>
-            <option value="品牌">品牌</option>
-          </select>
-          <input id="searchContent" placeholder="请输入要搜索的内容" ref={(c) => this.searchContent = c} onKeyDown={this.handleKeyDown.bind(this)}/>
-        </div>
-        <ItemTypeList itemList={this.props.itemList} filterItemList={this.props.filterItemList}/>
-        <div id="items">
-          {itemList}
-        </div>
+      <div id="items">
+        {itemList}
       </div>
     );
   }
