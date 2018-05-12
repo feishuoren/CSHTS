@@ -29,12 +29,7 @@ export default class PersonalItems extends Component {
   setItemList() {
     return this.props.userItems.map((val, index) => {
       return <div key={index} className="item">
-        <Link to={{
-          pathname: '/getItemMessage',
-          search: '?sort=name',
-          hash: '#the-hash',
-          state: {itemId: val._id}
-        }}>
+        <Link to={`/items/getItemMessage:${val._id}`}>
           <div className="itemPicture">
             <img height='100px' src={val.itemPicture}/>
           </div>
@@ -57,12 +52,7 @@ export default class PersonalItems extends Component {
           </div>
         </Link>
         <div className="itemOptions">
-          <Link to={{
-            pathname: '/updateItemMessage',
-            search: '?sort=name',
-            hash: '#the-hash',
-            state: {itemId: val._id}
-          }}>
+          <Link to={`/items/updateItemMessage:${val._id}`}>
             <button>修改</button>
           </Link>
           <button onClick={(e) => this.props.deleteUserItem(val._id, this.getCookieUser())}>删除</button>

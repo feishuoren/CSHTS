@@ -31,12 +31,7 @@ export default class UserShoppingCart extends Component {
     return this.props.userShoppingCartItems.reverse().map((val, index) => {
       const sno = this.getCookieUser();
       return <div key={index} className="item shoppingCartItem">
-        <Link to={{
-          pathname: '/getItemMessage',
-          search: '?sort=name',
-          hash: '#the-hash',
-          state: {itemId: val.itemId}
-        }}>
+        <Link to={`/items/getItemMessage:${val.itemId}`}>
           <div className="itemPicture">
             <img height='100px' src={val.itemPicture}/>
           </div>

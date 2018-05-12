@@ -50,11 +50,11 @@ render((
         <App {...props}>
           <Switch>
             <Route path='/' exact component={ShowItems}/>
-            <Route path='/userShoppingCart' component={UserShoppingCart}/>
-            <Route path='/getItemMessage' component={ItemMessage}/>
-            <Route path='/updateItemMessage' component={UpdateItemMessage}/>
-            <Route path='/sellItem' component={SellItem}/>
+            <Route path='/items/getItemMessage:itemId' component={ItemMessage}/>
+            <Route path='/items/updateItemMessage:itemId' component={UpdateItemMessage}/>
+            <Route path='/items/sellItem' component={SellItem}/>
             <Route path='/loginBar' component={LoginBar}/>
+            <Route path='/userShoppingCart' component={UserShoppingCart}/>
             <Route path='/personalCenter' component={(props) => (
               <PersonalCenter {...props}>
                 <Switch>

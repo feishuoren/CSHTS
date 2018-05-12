@@ -34,12 +34,7 @@ export default class PersonalComments extends Component {
       const nickname = this.getCookieUser().nickname;
       const sno = this.getCookieUser().sno;
       return <div key={index} className="commentBox">
-        <Link to={{
-          pathname: '/getItemMessage',
-          search: '?sort=name',
-          hash: '#the-hash',
-          state: {itemId: ele.itemId}
-        }}>
+        <Link to={`/items/getItemMessage:${ele.itemId}`}>
           <div>
             <img src={ele.itemPicture}/>
           </div>

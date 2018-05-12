@@ -3,7 +3,9 @@ import {Link} from 'react-router-dom';
 
 export default class UpdateItemMessage extends Component {
   componentDidMount() {
-    const itemId = this.props.location.state.itemId;
+    const url = window.location.href;
+    const params = url.split(':');
+    const itemId = params[params.length - 1];
     this.props.getItemMessage(itemId);
   }
 

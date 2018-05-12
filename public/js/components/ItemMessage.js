@@ -3,7 +3,9 @@ import '!style-loader!css-loader!./../../style/itemMessage.css';
 
 export default class ItemMessage extends Component {
   componentWillMount() {
-    const itemId = this.props.location.state.itemId;
+    const url = window.location.href;
+    const params = url.split(':');
+    const itemId = params[params.length - 1];
     this.props.getItemMessage(itemId);
   }
 

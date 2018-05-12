@@ -71,12 +71,7 @@ class ItemList extends Component {
   setItemList() {
     return this.props.showItemList.map((val, index) => {
       return <div key={index} className="item">
-        <Link to={{
-          pathname: '/getItemMessage',
-          search: '?sort=name',
-          hash: '#the-hash',
-          state: {itemId: val._id}
-        }}>
+        <Link to={`/items/getItemMessage:${val._id}`}>
           <div className="itemPicture">
             <img src={val.itemPicture}/>
           </div>
