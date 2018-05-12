@@ -28,13 +28,14 @@ function addItemToShoppingCart(req, callback) {
               isExist = true;
               count += ele.count;
               theOldShoppingCartItem = ele;
+              theShoppingCartItem = {itemId, itemPicture, itemName, itemOwner, itemPrice, count};
             }
           });
           if (!isExist) {
             result.myShoppingCart.push(theShoppingCartItem);
           }
           else {
-            result.myComments.splice(result.myComments.indexOf(theOldShoppingCartItem), 1, theShoppingCartItem);
+            result.myShoppingCart.splice(result.myShoppingCart.indexOf(theOldShoppingCartItem), 1, theShoppingCartItem);
           }
           userCollection.save(result);
         }
