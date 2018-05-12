@@ -30,7 +30,10 @@ export default class UserShoppingCart extends Component {
   setItemList() {
     return this.props.userShoppingCartItems.reverse().map((val, index) => {
       const sno = this.getCookieUser();
+
       return <div key={index} className="item shoppingCartItem">
+        <input type="checkbox" onChange={this.check.bind(this, [val, index])}/>
+
         <Link to={`/items/getItemMessage:${val.itemId}`}>
           <div className="itemPicture">
             <img height='100px' src={val.itemPicture}/>
@@ -50,13 +53,50 @@ export default class UserShoppingCart extends Component {
             </div>
           </div>
         </Link>
+
         <div className="ShoppingCartOptions">
-          <button onClick={(e) => this.props.deleteUserShoppingCartItem(sno, val)}>
+          <button onClick={this.handleDelete.bind(this, sno, val)}>
             删除
           </button>
         </div>
       </div>;
     });
+  }
+
+  handleDelete(sno, val) {
+    let checkedItems = this.props.checkedItems;
+    if (checkedItems.indexOf(val) >= 0) {
+      checkedItems.splice(checkedItems.indexOf(val), 1);
+      this.props.changeCheckedItems(checkedItems);
+      this.calculateTotalPrice();
+    }
+
+    this.props.deleteUserShoppingCartItem(sno, val);
+  }
+
+  check(itemarray) {
+    const ele = itemarray[0];
+    const index = itemarray[1];
+    let checkedItems = this.props.checkedItems;
+
+    if (checkedItems.indexOf(ele) < 0) {
+      checkedItems.push(ele);
+      this.props.changeCheckedItems(checkedItems);
+    } else {
+      checkedItems.splice(checkedItems.indexOf(ele), 1);
+      this.props.changeCheckedItems(checkedItems);
+    }
+    this.calculateTotalPrice();
+  }
+
+  calculateTotalPrice() {
+    let priceArray = [];
+    this.props.checkedItems.forEach((ele, index) => {
+      priceArray.push(ele.itemPrice * ele.count);
+    });
+    let totalPrice = Array.isArray(priceArray) && priceArray.length > 0 ? priceArray.reduce((prior, next) => prior + next) : 0;
+
+    this.totalPrice.innerHTML = totalPrice;
   }
 
   render() {
@@ -66,6 +106,7 @@ export default class UserShoppingCart extends Component {
       <div id="itemList">
         <div id="items">
           {userShoppingCartItems}
+          总计：<span ref={(c) => this.totalPrice = c}>0</span>元
         </div>
       </div>
     );
