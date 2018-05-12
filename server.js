@@ -15,6 +15,7 @@ const deleteUserItem = require('./server/routers/deleteUserItem');
 const getUserComments = require('./server/routers/getUserComments');
 const deleteUserComment = require('./server/routers/deleteUserComment');
 const getShoppingCart = require('./server/routers/getShoppingCart');
+const deleteUserShoppingCartItem = require('./server/routers/deleteUserShoppingCartItem');
 
 const bodyParser = require('body-parser');
 
@@ -37,6 +38,7 @@ app.use('/', deleteUserItem);
 app.use('/', getUserComments);
 app.use('/', deleteUserComment);
 app.use('/', getShoppingCart);
+app.use('/', deleteUserShoppingCartItem);
 
 app.listen(3000, function () {
   console.log('listen 3000!');

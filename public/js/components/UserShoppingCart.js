@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
+import '!style-loader!css-loader!./../../style/userShoppingCart.css';
 
 export default class UserShoppingCart extends Component {
   componentWillMount() {
@@ -28,7 +29,8 @@ export default class UserShoppingCart extends Component {
 
   setItemList() {
     return this.props.userShoppingCartItems.reverse().map((val, index) => {
-      return <div key={index} className="item">
+      const sno = this.getCookieUser();
+      return <div key={index} className="item shoppingCartItem">
         <Link to={{
           pathname: '/getItemMessage',
           search: '?sort=name',
@@ -53,6 +55,11 @@ export default class UserShoppingCart extends Component {
             </div>
           </div>
         </Link>
+        <div className="ShoppingCartOptions">
+          <button onClick={(e) => this.props.deleteUserShoppingCartItem(sno, val)}>
+            删除
+          </button>
+        </div>
       </div>;
     });
   }

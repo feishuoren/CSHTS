@@ -1,0 +1,29 @@
+#items .shoppingCartItem {
+  background-color: #cecdb0;
+  width: 98%;
+  border-radius: 5px;
+  font-size: 14px;;
+  overflow: hidden;
+  zoom: 1;
+  margin: 10px 0%;
+}
+
+#items .shoppingCartItem img {
+  float: left;
+  max-width: 100%;
+}
+
+.ShoppingCartOptions {
+  float: right;
+}
+
+.shoppingCartItem a {
+  width: 80%;
+  display: inline-block;
+}
+
+.shoppingCartItem a:hover {
+  width: 80%;
+  background-color: initial;
+  display: inline-block;
+}

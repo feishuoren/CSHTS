@@ -9,6 +9,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     getUserShoppingCartItems: (userSno) => {
       dispatch({type: 'GETUSERSHOPPINGCART', userSno});
+    },
+    deleteUserShoppingCartItem: (theUser, theItem) => {
+      dispatch({type: 'DELETEUSERSHOPPINGCARTITEM', theUser, theItem});
     }
   };
 };

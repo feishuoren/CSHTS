@@ -32,13 +32,14 @@ import logIn from './middlewares/logIn';
 import sellItem from './middlewares/sellItem';
 import getUserMessage from './middlewares/getUserMessage';
 import getUserShoppingCartItems from './middlewares/getUserShoppingCartItems';
+import deleteUserShoppingCartItem from './middlewares/deleteUserShoppingCartItem';
 import getUserItems from './middlewares/getUserItems';
 import deleteUserItem from './middlewares/deleteUserItem';
 import getUserComments from './middlewares/getUserComments';
 import deleteUserComment from './middlewares/deleteUserComment';
 
 const middleware = applyMiddleware(showItems, getItemMessage, updateItemMessage, addItemToShoppingCart,
-  addItemComment, signIn, logIn, sellItem, getUserMessage, getUserShoppingCartItems,
+  addItemComment, signIn, logIn, sellItem, getUserMessage, getUserShoppingCartItems, deleteUserShoppingCartItem,
   getUserItems, deleteUserItem, getUserComments, deleteUserComment);
 const store = createStore(reducer, middleware);
 
