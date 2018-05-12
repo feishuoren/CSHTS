@@ -6,6 +6,7 @@ import signIn from './signIn';
 import logIn from './logIn';
 import addSellItem from './sellItem';
 import getUserMessage from './getUserMessage';
+import userShoppingCart from './userShoppingCart';
 import userItems from './userItems';
 import userComments from './userComments';
 
@@ -17,6 +18,7 @@ export default combineReducers({
   logIn,
   addSellItem,
   getUserMessage,
+  userShoppingCart,
   userItems,
   userComments
 });

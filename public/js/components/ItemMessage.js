@@ -7,11 +7,31 @@ export default class ItemMessage extends Component {
     this.props.getItemMessage(itemId);
   }
 
+  getCookieUser() {
+    let nickname;
+    let sno;
+    let allCookies = document.cookie.split('; ');
+    allCookies.forEach((val) => {
+      let cookie = val.split('=');
+      let cookieName = cookie[0];
+      let cookieValue = cookie[1];
+      if (cookieName === 'nickname') {
+        nickname = cookieValue;
+      }
+      if (cookieName === 'sno') {
+        sno = cookieValue;
+      }
+    });
+
+    return {nickname, sno};
+  }
+
   render() {
     return (
       <div>
         <ItemMesBox itemMessage={this.props.itemMessage}/>
-        <ItemComments itemMessage={this.props.itemMessage} addComment={this.props.addComment}/>
+        <ShoppingButtons itemMessage={this.props.itemMessage} addItemToShoppingCart={this.props.addItemToShoppingCart} getCookieUser={this.getCookieUser}/>
+        <ItemComments itemMessage={this.props.itemMessage} addComment={this.props.addComment} getCookieUser={this.getCookieUser}/>
       </div>
     );
   }
@@ -41,6 +61,28 @@ class ItemMesBox extends Component {
   }
 }
 
+class ShoppingButtons extends Component {
+  handleAddItemToShoppingCart() {
+    if (!this.props.getCookieUser().sno) {
+      window.location = '#/loginBar';
+    } else {
+      const itemMessage = this.props.itemMessage;
+      const sno = this.props.getCookieUser().sno;
+
+      this.props.addItemToShoppingCart(itemMessage, sno);
+    }
+
+  }
+
+  render() {
+    return (
+      <div>
+        <button onClick={this.handleAddItemToShoppingCart.bind(this)}>加入购物车</button>
+      </div>
+    );
+  }
+}
+
 class ItemComments extends Component {
   setCommentList() {
 
@@ -61,40 +103,21 @@ class ItemComments extends Component {
   }
 
   submitComment() {
-    if (!this.getCookieUser().sno) {
+    if (!this.props.getCookieUser().sno) {
       window.location = '#/loginBar';
     } else {
       if (this.inputComment.value) {
         const itemId = this.props.itemMessage._id;
         const itemPicture = this.props.itemMessage.itemPicture;
         const itemName = this.props.itemMessage.itemName;
-        const nickname = this.getCookieUser().nickname;
-        const sno = this.getCookieUser().sno;
+        const nickname = this.props.getCookieUser().nickname;
+        const sno = this.props.getCookieUser().sno;
         const comment = this.inputComment.value;
 
         this.props.addComment(itemId, itemPicture, itemName, nickname, sno, comment);
       }
     }
 
-  }
-
-  getCookieUser() {
-    let nickname;
-    let sno;
-    let allCookies = document.cookie.split('; ');
-    allCookies.forEach((val) => {
-      let cookie = val.split('=');
-      let cookieName = cookie[0];
-      let cookieValue = cookie[1];
-      if (cookieName === 'nickname') {
-        nickname = cookieValue;
-      }
-      if (cookieName === 'sno') {
-        sno = cookieValue;
-      }
-    });
-
-    return {nickname, sno};
   }
 
   render() {

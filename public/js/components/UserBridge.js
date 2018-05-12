@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
-import '!style-loader!css-loader!./../../style/userBridge.css';
-
 import {Link} from 'react-router-dom';
+import '!style-loader!css-loader!./../../style/userBridge.css';
 
 export default class UserBridge extends Component {
   exitLogin() {
@@ -24,6 +23,7 @@ export default class UserBridge extends Component {
       <div id="user-box">
         <div id="user_cookie" ref={(c) => this.user_cookie = c}>
           欢迎你，{nickname}
+          <Link to='/userShoppingCart'>购物车</Link>
         </div>
         <div id="login-button"><Link to='/loginBar'>注册登录</Link></div>
         <div id="exit-button">
