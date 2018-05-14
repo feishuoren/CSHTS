@@ -30,7 +30,7 @@ export default class ItemMessage extends Component {
 
   render() {
     return (
-      <div>
+      <div id="showItemMessage">
         <ItemMesBox itemMessage={this.props.itemMessage}/>
         <ShoppingButtons itemMessage={this.props.itemMessage} addItemToShoppingCart={this.props.addItemToShoppingCart} getCookieUser={this.getCookieUser}/>
         <ItemComments itemMessage={this.props.itemMessage} addComment={this.props.addComment} getCookieUser={this.getCookieUser}/>
@@ -70,15 +70,28 @@ class ShoppingButtons extends Component {
     } else {
       const itemMessage = this.props.itemMessage;
       const sno = this.props.getCookieUser().sno;
-
-      this.props.addItemToShoppingCart(itemMessage, sno);
+      if (itemMessage.itemStatus === false) {
+        this.tip.innerHTML = '已售出';
+        setTimeout(function () {
+          this.tip.innerHTML = '';
+        }, 3000);
+      } else if (itemMessage.itemAccount === sno) {
+        this.tip.innerHTML = '请勿添加自己的商品';
+        setTimeout(function () {
+          this.tip.innerHTML = '';
+        }, 3000);
+      } else {
+        this.props.addItemToShoppingCart(itemMessage, sno);
+      }
     }
 
   }
 
   render() {
     return (
-      <div>
+      <div id="buttonPushItemToCart">
+        <span id="tip" ref={(c) => this.tip = c}></span>
+        <br/><br/>
         <button onClick={this.handleAddItemToShoppingCart.bind(this)}>加入购物车</button>
       </div>
     );
@@ -126,7 +139,7 @@ class ItemComments extends Component {
     const itemComments = Array.isArray(this.props.itemMessage.itemComments) && this.props.itemMessage.itemComments.length > 0 ? this.setCommentList() : '暂时没有评论，等待你来发掘';
 
     return (
-      <div>
+      <div id="showItemComments">
         <input type="text" ref={(c) => this.inputComment = c}/>
         <button onClick={this.submitComment.bind(this)}>我要评论</button>
         {itemComments}

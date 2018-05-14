@@ -1,9 +1,22 @@
+#showItemMessage {
+  width: 86%;
+  margin: 0 auto;
+}
+
 #itemMesBox {
-  margin: 35px 2%;;
+  margin-top: 35px;
 }
 
 #itemMesPic img {
   height: 150px;
+}
+
+#buttonPushItemToCart {
+  margin: 20px auto;
+}
+
+#showItemComments {
+  margin-top: 20px;
 }
 
 .commentBox {
