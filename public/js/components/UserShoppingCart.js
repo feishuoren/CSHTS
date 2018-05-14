@@ -100,7 +100,8 @@ export default class UserShoppingCart extends Component {
     const userShoppingCartItems = this.props.userShoppingCartItems.length > 0 ? this.setItemList() : '暂时没有商品，等待你来添加';
 
     return (
-      <div>
+      <div id='userShoppingCart'>
+        <h2>我的购物车</h2>
         <div id="itemList">
           <div id="items">
             {userShoppingCartItems}

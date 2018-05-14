@@ -1,4 +1,13 @@
-#items .shoppingCartItem {
+#userShoppingCart {
+  width: 86%;
+  margin: 20px auto;
+}
+
+#userShoppingCart #items {
+  width: 100%;
+}
+
+#userShoppingCart .shoppingCartItem {
   background-color: #cecdb0;
   width: 98%;
   border-radius: 5px;
@@ -8,26 +17,26 @@
   margin: 10px 0%;
 }
 
-#items .shoppingCartItem img {
+#userShoppingCart .shoppingCartItem img {
   float: left;
   max-width: 100%;
 }
 
-.ShoppingCartOptions {
+#userShoppingCart .ShoppingCartOptions {
   float: right;
 }
 
-.shoppingCartItem a {
+#userShoppingCart .shoppingCartItem a {
   width: 80%;
   display: inline-block;
-  padding: 0 0 ;
-  margin:0 0;
+  padding: 0 0;
+  margin: 0 0;
 }
 
-.shoppingCartItem a:hover {
+#userShoppingCart .shoppingCartItem a:hover {
   width: 80%;
-  margin:0 0;
-  padding:0 0;
+  margin: 0 0;
+  padding: 0 0;
   background-color: initial;
   display: inline-block;
 }

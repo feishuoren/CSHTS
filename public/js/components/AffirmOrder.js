@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import '!style-loader!css-loader!./../../style/affirmOrder.css';
 
 export default class AffirmOrder extends Component {
   getCookieUser() {
@@ -84,8 +85,8 @@ export default class AffirmOrder extends Component {
     });
 
     return (
-      <div>
-        确认订单
+      <div id="affirmOrder">
+        <h2>确认订单</h2>
         <div id="itemList">
           <div id="items">
             {checkedItems}
@@ -98,7 +99,9 @@ export default class AffirmOrder extends Component {
           <option value="支付宝">支付宝</option>
           <option value="微信">微信</option>
         </select>
-        <button onClick={this.handleSubmit.bind(this)}>确认订单</button>
+        <div>
+          <button onClick={this.handleSubmit.bind(this)}>确认订单</button>
+        </div>
         {this.setTip()}
         <div id="tip" ref={(c) => this.tip = c}></div>
 
