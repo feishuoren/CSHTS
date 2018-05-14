@@ -52,26 +52,26 @@
   margin-left: 10px;
 }
 
-.itemOptions {
+#items .itemOptions {
   float: right;
 }
 
-.itemCount {
+#items .itemCount {
   float: right;
 }
 
-.commentOptions {
+#items .commentOptions {
   float: right;
 }
 
-.itemOptions a:hover {
+#items .itemOptions a:hover {
   padding: initial;
   margin: initial;
   display: initial;
   background-color: initial;
 }
 
-#personalBoxContent .item a{
+#personalBoxContent .item a {
   width: 80%;
   display: inline-block;
 }

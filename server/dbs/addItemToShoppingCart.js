@@ -5,11 +5,12 @@ function addItemToShoppingCart(req, callback) {
   const itemPicture = req.body.itemMessage.itemPicture;
   const itemName = req.body.itemMessage.itemName;
   const itemOwner = req.body.itemMessage.itemOwner;
+  const itemAccount = req.body.itemMessage.itemAccount;
   const itemPrice = req.body.itemMessage.itemPrice;
   const sno = req.body.sno;
   let count = 1;
   let theOldShoppingCartItem;
-  let theShoppingCartItem = {itemId, itemPicture, itemName, itemOwner, itemPrice, count};
+  let theShoppingCartItem = {itemId, itemPicture, itemName, itemOwner, itemAccount, itemPrice, count};
 
   cn.MongoClient.connect(cn.url, (err, database) => {
     if (err) {
@@ -28,7 +29,7 @@ function addItemToShoppingCart(req, callback) {
               isExist = true;
               count += ele.count;
               theOldShoppingCartItem = ele;
-              theShoppingCartItem = {itemId, itemPicture, itemName, itemOwner, itemPrice, count};
+              theShoppingCartItem = {itemId, itemPicture, itemName, itemOwner, itemAccount, itemPrice, count};
             }
           });
           if (!isExist) {

@@ -19,6 +19,9 @@ import PersonalMessage from './containers/GetUserMessage';
 import PersonalItems from './containers/UserItems';
 import PersonalComments from './containers/UserComments';
 import UserShoppingCart from './containers/UserShoppingCart';
+import PersonalBoughtOrders from './containers/UserBoughtOrders';
+import PersonalSellOrders from './containers/UserSellOrders';
+import AffirmOrder from './containers/AffirmOrder';
 
 import reducer from './reducers/index';
 
@@ -37,10 +40,13 @@ import getUserItems from './middlewares/getUserItems';
 import deleteUserItem from './middlewares/deleteUserItem';
 import getUserComments from './middlewares/getUserComments';
 import deleteUserComment from './middlewares/deleteUserComment';
+import affirmOrder from './middlewares/affirmOrder';
+import getUserBoughtOrders from './middlewares/getUserBoughtOrders';
+import getUserSellOrders from './middlewares/getUserSellOrders';
 
-const middleware = applyMiddleware(showItems, getItemMessage, updateItemMessage, addItemToShoppingCart,
-  addItemComment, signIn, logIn, sellItem, getUserMessage, getUserShoppingCartItems, deleteUserShoppingCartItem,
-  getUserItems, deleteUserItem, getUserComments, deleteUserComment);
+const middleware = applyMiddleware(showItems, getItemMessage, updateItemMessage, addItemToShoppingCart, addItemComment,
+  signIn, logIn, sellItem, getUserMessage, getUserShoppingCartItems, deleteUserShoppingCartItem, getUserItems,
+  deleteUserItem, getUserComments, deleteUserComment, affirmOrder, getUserBoughtOrders, getUserSellOrders);
 const store = createStore(reducer, middleware);
 
 render((
@@ -55,12 +61,15 @@ render((
             <Route path='/items/sellItem' component={SellItem}/>
             <Route path='/loginBar' component={LoginBar}/>
             <Route path='/userShoppingCart' component={UserShoppingCart}/>
+            <Route path='/user/affirmOrder' component={AffirmOrder}/>
             <Route path='/personalCenter' component={(props) => (
               <PersonalCenter {...props}>
                 <Switch>
                   <Route path='/personalCenter' exact component={PersonalMessage}/>
                   <Route path='/personalCenter/items' component={PersonalItems}/>
                   <Route path='/personalCenter/comments' component={PersonalComments}/>
+                  <Route path='/personalCenter/boughtOrders' component={PersonalBoughtOrders}/>
+                  <Route path='/personalCenter/sellOrders' component={PersonalSellOrders}/>
                 </Switch>
               </PersonalCenter>
             )}/>

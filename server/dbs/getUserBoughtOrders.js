@@ -1,6 +1,6 @@
 const cn = require('./connect');
 
-function getUserShoppingCart(req, callback) {
+function getUserBoughtOrders(req, callback) {
   cn.MongoClient.connect(cn.url, (err, database) => {
     if (err) {
       console.log(err);
@@ -9,9 +9,9 @@ function getUserShoppingCart(req, callback) {
       const collection = database.collection('users');
 
       collection.findOne({sno: req.body.userSno}, (err, result) => {
-        const callbackArray = Array.isArray(result.myShoppingCart) && result.myShoppingCart.length > 0 ? result.myShoppingCart.reverse() : [];
+        const callbackValue = Array.isArray(result.myBoughtOrders) && result.myBoughtOrders.length > 0 ? result.myBoughtOrders.reverse() : [];
 
-        callback(callbackArray);
+        callback(callbackValue);
       });
 
       database.close();
@@ -19,4 +19,4 @@ function getUserShoppingCart(req, callback) {
   });
 }
 
-module.exports = getUserShoppingCart;
+module.exports = getUserBoughtOrders;

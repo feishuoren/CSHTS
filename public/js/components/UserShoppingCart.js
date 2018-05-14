@@ -13,7 +13,6 @@ export default class UserShoppingCart extends Component {
   }
 
   getCookieUser() {
-    let nickname;
     let sno;
     let allCookies = document.cookie.split('; ');
     allCookies.forEach((val) => {
@@ -28,11 +27,11 @@ export default class UserShoppingCart extends Component {
   }
 
   setItemList() {
-    return this.props.userShoppingCartItems.reverse().map((val, index) => {
+    return this.props.userShoppingCartItems.map((val, index) => {
       const sno = this.getCookieUser();
 
       return <div key={index} className="item shoppingCartItem">
-        <input type="checkbox" onChange={this.check.bind(this, [val, index])}/>
+        <input type="checkbox" onChange={this.check.bind(this, val)}/>
 
         <Link to={`/items/getItemMessage:${val.itemId}`}>
           <div className="itemPicture">
@@ -68,46 +67,49 @@ export default class UserShoppingCart extends Component {
     if (checkedItems.indexOf(val) >= 0) {
       checkedItems.splice(checkedItems.indexOf(val), 1);
       this.props.changeCheckedItems(checkedItems);
-      this.calculateTotalPrice();
     }
 
     this.props.deleteUserShoppingCartItem(sno, val);
   }
 
-  check(itemarray) {
-    const ele = itemarray[0];
-    const index = itemarray[1];
+  check(theItem) {
     let checkedItems = this.props.checkedItems;
 
-    if (checkedItems.indexOf(ele) < 0) {
-      checkedItems.push(ele);
-      this.props.changeCheckedItems(checkedItems);
+    if (this.props.checkedItems.filter(ele => ele.itemId === theItem.itemId).length == 0) {
+      checkedItems.push(theItem);
+      this.props.changeCheckedItems(checkedItems, this.calculateTotalPrice(checkedItems));
     } else {
-      checkedItems.splice(checkedItems.indexOf(ele), 1);
-      this.props.changeCheckedItems(checkedItems);
+      checkedItems = this.props.checkedItems.filter(ele => ele.itemId != theItem.itemId);
+      this.props.changeCheckedItems(checkedItems, this.calculateTotalPrice(checkedItems));
     }
-    this.calculateTotalPrice();
   }
 
-  calculateTotalPrice() {
+  calculateTotalPrice(checkedItems) {
     let priceArray = [];
-    this.props.checkedItems.forEach((ele, index) => {
-      priceArray.push(ele.itemPrice * ele.count);
-    });
-    let totalPrice = Array.isArray(priceArray) && priceArray.length > 0 ? priceArray.reduce((prior, next) => prior + next) : 0;
 
-    this.totalPrice.innerHTML = totalPrice;
+    if (Array.isArray(checkedItems) && checkedItems.length > 0) {
+      checkedItems.forEach((ele, index) => {
+        priceArray.push(ele.itemPrice * ele.count);
+      });
+    }
+    let totalPrice = Array.isArray(priceArray) && priceArray.length > 0 ? priceArray.reduce((prior, next) => prior + next) : 0;
+    return totalPrice;
   }
 
   render() {
-    const userShoppingCartItems = Array.isArray(this.props.userShoppingCartItems) && this.props.userShoppingCartItems.length > 0 ? this.setItemList() : '暂时没有商品，等待你来添加';
+    const userShoppingCartItems = this.props.userShoppingCartItems.length > 0 ? this.setItemList() : '暂时没有商品，等待你来添加';
 
     return (
-      <div id="itemList">
-        <div id="items">
-          {userShoppingCartItems}
-          总计：<span ref={(c) => this.totalPrice = c}>0</span>元
+      <div>
+        <div id="itemList">
+          <div id="items">
+            {userShoppingCartItems}
+          </div>
         </div>
+        总计：{this.props.totalPrice}元
+        <Link to='/user/affirmOrder'>
+          <button>提交订单</button>
+        </Link>
       </div>
     );
   }
