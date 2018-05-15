@@ -67,7 +67,7 @@
 #items .itemOptions a:hover {
   padding: initial;
   margin: initial;
-  display: initial;
+  display: inline-block;
   background-color: initial;
 }
 
