@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import '!style-loader!css-loader!./../../style/orders.css';
 
-export default class PersonalBoughtOrders extends Component {
+export default class PersonalSellOrders extends Component {
   componentWillMount() {
     if (!this.getCookieUser().sno) {
       window.location = '#/loginBar';
