@@ -7,7 +7,7 @@ campus second-hand trading system
 请在terminal中运行
 
 ```
-git clone git@github.com:egrils/CSHTS.git
+git clone git@github.com:feishuoren/CSHTS.git
 cd CSHTS
 npm install
 npm run webpack
